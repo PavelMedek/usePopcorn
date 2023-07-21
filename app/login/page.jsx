@@ -10,10 +10,10 @@ export const metadata = {
 const Login = () => {
   return (
     <main className="flex flex-row">
-      <section className="w-1/2 min-h-screen flex justify-center items-center">
-        <div className="w-2/3 p-10">
+      <section className="w-1/2 min-h-screen flex justify-center items-center sm:w-full sm:items-start sm:justify-normal">
+        <div className="w-2/3 p-10 sm:w-full">
           <form className="flex flex-col gap-10">
-            <h1 className="uppercase text-5xl">PŘIHLÁŠENÍ</h1>
+            <h1 className="uppercase text-5xl sm:text-3xl">PŘIHLÁŠENÍ</h1>
             <div className="flex flex-col gap-2">
               <label htmlFor="" className="text-[#989898]">
                 Email
@@ -32,7 +32,7 @@ const Login = () => {
                 přihlásit se
               </Link>
 
-              <span className="text-right text-[#989898]">
+              <span className="text-right sm:text-xs text-[#989898]">
                 Nemáte účet?{" "}
                 <Link href="/signup" className="text-white underline">
                   Zaregistrujte se zdarma!
@@ -42,7 +42,7 @@ const Login = () => {
           </form>
         </div>
       </section>
-      <section className="w-1/2 min-h-screen login-background" />
+      <section className="w-1/2 min-h-screen login-background sm:hidden" />
     </main>
   );
 };
