@@ -5,17 +5,17 @@ export default function Home() {
   return (
     <main className="background min-h-screen text-white p-10">
       <nav className="flex justify-between items-center">
-        <p className="text-4xl font-bold">usePopcorn</p>
+        <p className="text-4xl font-bold sm:text-xl">usePopcorn</p>
         <Link
           href="/login"
-          className="bg-blue-500 py-4 px-16 rounded-full font-bold text-lg "
+          className="bg-blue-500 py-4 px-16 rounded-full font-bold text-lg sm:px-5 sm:py-2 sm:text-base"
         >
           Log In
         </Link>
       </nav>
 
-      <section className="flex justify-center mt-52 ">
-        <div className="flex flex-col items-center w-1/2 gap-10">
+      <section className="flex justify-center mt-52 sm:mt-32 ">
+        <div className="flex flex-col items-center w-1/2 gap-10 sm:gap-x-0 sm:w-full">
           <h1 className="text-5xl font-bold text-center">
             Váš spolehlivý průvodce světem seriálů
           </h1>
