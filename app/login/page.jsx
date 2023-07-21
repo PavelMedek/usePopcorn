@@ -10,8 +10,8 @@ export const metadata = {
 const Login = () => {
   return (
     <main className="flex flex-row">
-      <section className="w-1/2 min-h-screen flex justify-center items-center sm:w-full sm:items-start sm:justify-normal">
-        <div className="w-2/3 p-10 sm:w-full">
+      <section className="w-1/2 min-h-screen flex justify-center items-center lg:w-full sm:items-start sm:justify-normal">
+        <div className="w-2/3 p-10 sm:w-full ">
           <form className="flex flex-col gap-10">
             <h1 className="uppercase text-5xl sm:text-3xl">PŘIHLÁŠENÍ</h1>
             <div className="flex flex-col gap-2">
@@ -24,7 +24,7 @@ const Login = () => {
               </label>
               <input type="text" className="bg-[#1A161E] p-4 rounded-md" />
             </div>
-            <div className="flex flex-col gap-1">
+            <div className="flex flex-col gap-2">
               <Link
                 href="/login"
                 className="bg-blue-500 py-4 px-16 rounded-md font-bold text-lg text-center uppercase"
@@ -42,7 +42,7 @@ const Login = () => {
           </form>
         </div>
       </section>
-      <section className="w-1/2 min-h-screen login-background sm:hidden" />
+      <section className="w-1/2 min-h-screen login-background lg:hidden" />
     </main>
   );
 };
