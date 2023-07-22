@@ -1,6 +1,14 @@
 import MainNavbar from "@/components/MainNavbar";
 import { platforms } from "@/utils/data";
 
+export async function generateMetadata({ params, searchParams }) {
+  const title = params.platformName;
+
+  return {
+    title: `usePopcorn - ${title.charAt(0).toUpperCase() + title.slice(1)}`,
+  };
+}
+
 export default function Layout({ children, params }) {
   const shows = platforms.find((el) => el.name === params.platformName);
 
