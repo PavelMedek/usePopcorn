@@ -26,7 +26,7 @@ const Login = () => {
             </div>
             <div className="flex flex-col gap-2">
               <Link
-                href="/login"
+                href="/netflix"
                 className="bg-blue-500 py-4 w-full rounded-md font-bold text-lg text-center uppercase sm:py-2"
               >
                 přihlásit se
