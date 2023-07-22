@@ -1,5 +1,3 @@
-"use client";
-
 import MainNavbar from "@/components/MainNavbar";
 import { platforms } from "@/utils/data";
 
