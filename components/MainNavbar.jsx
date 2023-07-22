@@ -1,5 +1,4 @@
 "use client";
-import { cn } from "@/lib/utils";
 import { user } from "@/utils/data";
 import Image from "next/image";
 import Link from "next/link";

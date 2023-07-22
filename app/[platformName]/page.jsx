@@ -1,5 +1,3 @@
-"use client";
-
 const Page = ({ params }) => {
   const name = params.platformName;
 

@@ -6,12 +6,7 @@ import { Inter } from "next/font/google";
 
 const inter = Inter({ subsets: ["latin"] });
 
-export const metadata = {
-  title: "usePopcorn",
-  description: "Váš spolehlivý průvodce světem seriálů",
-};
-
-export default function RootLayout({ children }) {
+export default function ProfileLayout({ children }) {
   return (
     <>
       <main className="flex">
