@@ -1,5 +1,5 @@
 import Sidebar from "@/components/Sidebar/Sidebar";
-import { platforms } from "@/utils/data";
+import { platforms } from "@/lib/data";
 
 export async function generateMetadata({ params, searchParams }) {
   const title = params.platformName;

@@ -1,6 +1,7 @@
-import ProfileSidebar from "@/components/Sidebar/ProfileSidebar";
-import { platforms } from "@/utils/data";
 import { Inter } from "next/font/google";
+
+import ProfileSidebar from "@/components/Sidebar/ProfileSidebar";
+import { platforms } from "@/lib/data";
 
 const inter = Inter({ subsets: ["latin"] });
 

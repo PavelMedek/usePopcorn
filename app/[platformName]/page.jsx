@@ -1,7 +1,8 @@
 "use client";
 
-import { platforms } from "@/utils/data";
 import { useRouter } from "next/navigation";
+
+import { platforms } from "@/lib/data";
 
 const Page = ({ params }) => {
   const name = params.platformName;

@@ -1,6 +1,7 @@
-import Image from "next/image";
 import Link from "next/link";
-import React from "react";
+
+import Button from "@/components/Button";
+import Input from "@/components/Input";
 
 export const metadata = {
   title: "usePopcorn - Registrace",
@@ -16,27 +17,12 @@ const SignUp = () => {
           <form className="flex flex-col gap-10">
             <h1 className="uppercase text-5xl sm:text-3xl">Registrace</h1>
             <div className="flex flex-col gap-2">
-              <label htmlFor="" className="text-[#989898]">
-                Jméno
-              </label>
-              <input type="text" className="bg-[#1A161E] p-4 rounded-md" />
-              <label htmlFor="" className="text-[#989898]">
-                Email
-              </label>
-              <input type="text" className="bg-[#1A161E] p-4 rounded-md" />
-              <label htmlFor="" className="text-[#989898]">
-                Heslo
-              </label>
-              <input type="text" className="bg-[#1A161E] p-4 rounded-md" />
+              <Input label="Jméno" placeholder="John Doe" />
+              <Input label="Email" placeholder="johndoe@email.com" />
+              <Input label="Heslo" type="password" />
             </div>
             <div className="flex flex-col gap-2">
-              <Link
-                href="/login"
-                className="bg-blue-500 py-4 w-full rounded-md font-bold text-lg text-center uppercase sm:py-2"
-              >
-                zaregistrovat se
-              </Link>
-
+              <Button variant="full" text="zaregistrovat se" />
               <span className="text-right text-[#989898] sm:text-xs">
                 Už máte účet?
                 <Link href="/login" className="text-white underline">

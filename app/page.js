@@ -1,3 +1,4 @@
+import Button from "@/components/Button";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -6,12 +7,7 @@ export default function Home() {
     <main className="background min-h-screen text-white p-10">
       <nav className="flex justify-between items-center">
         <p className="text-4xl font-bold sm:text-xl">usePopcorn</p>
-        <Link
-          href="/login"
-          className="bg-blue-500 py-4 px-16 rounded-full font-bold text-lg sm:px-5 sm:py-2 sm:text-base"
-        >
-          Log In
-        </Link>
+        <Button text="Log In" />
       </nav>
 
       <section className="flex justify-center mt-52 sm:mt-32 ">
@@ -25,12 +21,7 @@ export default function Home() {
             uživatelsky přívětivé platformě budete mít okamžitý přístup k široké
             škále seriálů z celého světa.
           </p>
-          <Link
-            href="/login"
-            className="bg-blue-500 py-4 px-16 rounded-full font-bold text-lg "
-          >
-            Log In
-          </Link>
+          <Button text="Log In" />
         </div>
       </section>
     </main>

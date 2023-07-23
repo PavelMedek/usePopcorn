@@ -1,5 +1,4 @@
 import { useRouter } from "next/navigation";
-import React from "react";
 
 const MainShowsSidebar = ({ platforms, params }) => {
   const shows = platforms.find((el) => el.name === params.platformName);

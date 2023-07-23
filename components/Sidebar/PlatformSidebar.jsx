@@ -1,10 +1,11 @@
 "use client";
-import { user } from "@/utils/data";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 import { AiOutlineLogout } from "react-icons/ai";
+
+import { user } from "@/lib/data";
 
 const PlatformSidebar = ({ platforms }) => {
   const pathname = usePathname();
