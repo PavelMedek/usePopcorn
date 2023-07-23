@@ -46,7 +46,7 @@ export const platforms = [
     image: "/images/primevideo.jpg",
     series: [
       {
-        title: "FLEABAG",
+        title: "fleabag",
         desc: "A dry-witted woman, known only as Fleabag, has no filter as she navigates life and love in London while trying",
       },
     ],

@@ -6,13 +6,16 @@ import { usePathname } from "next/navigation";
 
 import { AiOutlineLogout } from "react-icons/ai";
 
-const MainNavbar = ({ platforms }) => {
+const PlatformSidebar = ({ platforms }) => {
   const pathname = usePathname();
+
+  const [_, platformName, showName] = pathname.split("/");
 
   const routes = platforms.map((item) => ({
     href: `/${item.name}`,
     label: item.name,
     active: pathname === `/${item.name}`,
+    activeToo: pathname === `/${item.name}/${showName}`,
     color: item.color,
     image: item.image,
   }));
@@ -56,7 +59,11 @@ const MainNavbar = ({ platforms }) => {
                 className="w-1 rounded-r-full"
                 style={{
                   backgroundColor: `${
-                    item.active ? item.color : "transparent"
+                    item.active
+                      ? item.color
+                      : item.activeToo
+                      ? item.color
+                      : "transparent"
                   }`,
                 }}
               ></div>
@@ -82,4 +89,4 @@ const MainNavbar = ({ platforms }) => {
   );
 };
 
-export default MainNavbar;
+export default PlatformSidebar;
