@@ -3,10 +3,11 @@
 import { useRouter } from "next/navigation";
 
 import { platforms } from "@/lib/data";
+import { useState } from "react";
+import MobileNavBar from "@/components/Sidebar/MobileNavBar";
 
 const Page = ({ params }) => {
   const name = params.platformName;
-  const router = useRouter();
 
   const platform = platforms.find((el) => el.name === params.platformName);
 
@@ -15,9 +16,9 @@ const Page = ({ params }) => {
   }
 
   return (
-    <div className="">
+    <>
       <p>{name}</p>
-    </div>
+    </>
   );
 };
 

@@ -1,3 +1,4 @@
+import PageContainer from "@/components/PageContainer";
 import Sidebar from "@/components/Sidebar/Sidebar";
 import { platforms } from "@/lib/data";
 
@@ -14,7 +15,7 @@ export default function Layout({ children, params }) {
     <>
       <main className="flex">
         <Sidebar platforms={platforms} params={params} />
-        <div className="w-full">{children}</div>
+        <PageContainer>{children}</PageContainer>
       </main>
     </>
   );
