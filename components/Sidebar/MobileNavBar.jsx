@@ -18,15 +18,16 @@ const MobileNavBar = ({ setShow, setshowContent, platforms, params }) => {
       </button>
 
       <div className="flex ">
-        <di className="w-24">
+        <div className="w-24">
           <PlatformSidebar platforms={platforms} />
-        </di>
+        </div>
         <div className="bg-[#1A161E] w-full py-16 px-5">
           <MainPlatformSidebar
             platforms={platforms}
             params={params}
             setShow={setShow}
             setshowContent={setshowContent}
+            items="show"
           />
         </div>
       </div>

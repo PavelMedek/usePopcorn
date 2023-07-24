@@ -13,7 +13,11 @@ const Sidebar = ({ platforms, params }) => {
       </LeftSidebar>
 
       <RightSidebar>
-        <MainPlatformSidebar platforms={platforms} params={params} />
+        <MainPlatformSidebar
+          platforms={platforms}
+          params={params}
+          items="show"
+        />
       </RightSidebar>
     </>
   );
