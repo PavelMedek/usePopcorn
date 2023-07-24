@@ -6,8 +6,11 @@ const MainShowsSidebar = ({ platforms, params, setShow, setshowContent }) => {
 
   const handleClick = (title) => {
     router.push(`/${params.platformName}/${title}`);
-    setShow(false);
-    setshowContent(true);
+
+    if (setShow && setshowContent) {
+      setShow(false);
+      setshowContent(true);
+    }
   };
 
   return (
