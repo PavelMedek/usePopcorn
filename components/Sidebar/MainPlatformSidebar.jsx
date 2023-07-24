@@ -2,6 +2,7 @@
 
 import { cn } from "@/lib/utils";
 import { usePathname, useRouter } from "next/navigation";
+import { AiFillHome } from "react-icons/ai";
 
 const MainShowsSidebar = ({
   platforms,
@@ -24,6 +25,15 @@ const MainShowsSidebar = ({
     }
   };
 
+  const handleMunu = (link) => {
+    router.push(link);
+
+    if (setShow && setshowContent) {
+      setShow(false);
+      setshowContent(true);
+    }
+  };
+
   const routes = shows.series.map((item) => ({
     href: `/${item.slug}`,
     label: item.title,
@@ -32,16 +42,57 @@ const MainShowsSidebar = ({
 
   const isShow = items === "show";
 
+  const platformColor = platforms.find((el) => el.name === platformName).color;
+
+  const routesMenu = [
+    {
+      href: `/${platformName}`,
+      label: "Menu",
+      active: pathname === `/${platformName}`,
+      color: platformColor,
+      icon: <AiFillHome />,
+    },
+  ];
+
   return (
     <>
-      {isShow && <div>Home</div>}
+      {isShow && (
+        <div className="mb-10">
+          {routesMenu.map((item) => (
+            <div
+              key={item.label}
+              onClick={() => handleMunu(item.href)}
+              className={cn(
+                "text-white mb-3 py-3 px-3 transition cursor-pointer flex w-full items-center gap-3 group text-lg rounded-md  hover:bg-[#17141b]"
+              )}
+            >
+              <div
+                className={cn(
+                  "group-hover:text-red-500",
+                  item.active ? "text-red-500" : "text-white"
+                )}
+              >
+                {item.icon}
+              </div>
+              <div
+                className={cn(
+                  "group-hover:text-red-500",
+                  item.active ? "text-red-500" : "text-white"
+                )}
+              >
+                {item.label}
+              </div>
+            </div>
+          ))}
+        </div>
+      )}
 
       {routes.map((el) => (
         <div
           onClick={() => handleClick(el.href)}
           key={el.label}
           className={cn(
-            "text-white mb-3 py-1 px-3 hover:bg-[#4c4158] cursor-pointer",
+            "text-white mb-3 py-3 rounded-md px-3 hover:bg-[#4c4158] transition cursor-pointer",
             el.active ? "bg-[#4c4158]" : "bg-transparent"
           )}
         >
