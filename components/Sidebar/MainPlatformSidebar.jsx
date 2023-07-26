@@ -80,18 +80,20 @@ const MainShowsSidebar = ({ platforms, params, setShowMenu, items }) => {
         </div>
       )}
 
-      {routes?.map((el) => (
-        <div
-          onClick={() => handleClick(el.href)}
-          key={el.label}
-          className={cn(
-            "text-white  py-3 rounded-md px-3 hover:bg-[#4c4158] transition cursor-pointer",
-            el.active ? "bg-[#4c4158]" : "bg-transparent"
-          )}
-        >
-          {el.label}
-        </div>
-      ))}
+      <div className="flex flex-col gap-2">
+        {routes?.map((el) => (
+          <div
+            onClick={() => handleClick(el.href)}
+            key={el.label}
+            className={cn(
+              "text-white py-3  rounded-md px-3 hover:bg-[#4c4158] transition cursor-pointer",
+              el.active ? "bg-[#4c4158]" : "bg-transparent"
+            )}
+          >
+            {el.label}
+          </div>
+        ))}
+      </div>
     </>
   );
 };

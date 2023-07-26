@@ -4,8 +4,9 @@ import React, { useState } from "react";
 import Sidebar from "./Sidebar";
 import { BiMenu } from "react-icons/bi";
 import { AiOutlineCloseCircle } from "react-icons/ai";
+import ProfileSidebar from "./ProfileSidebar";
 
-const MobileNavBar = ({ platforms, params }) => {
+const MobileNavBar = ({ platforms, params, profile }) => {
   const [showMenu, setShowMenu] = useState(false);
 
   return (
@@ -26,11 +27,15 @@ const MobileNavBar = ({ platforms, params }) => {
             <AiOutlineCloseCircle className="w-10 h-10" />
           </button>
           <nav className="md:flex sticky top-0 h-screen">
-            <Sidebar
-              setShowMenu={setShowMenu}
-              platforms={platforms}
-              params={params}
-            />
+            {profile ? (
+              <ProfileSidebar platforms={platforms} />
+            ) : (
+              <Sidebar
+                setShowMenu={setShowMenu}
+                platforms={platforms}
+                params={params}
+              />
+            )}
           </nav>
         </div>
       )}

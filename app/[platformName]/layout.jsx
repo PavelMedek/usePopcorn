@@ -18,7 +18,7 @@ export default function Layout({ children, params }) {
 
       <MobileNavBar platforms={platforms} params={params} />
 
-      <div className="w-full">{children}</div>
+      <div className="w-full flex flex-col">{children}</div>
     </section>
   );
 }

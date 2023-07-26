@@ -28,11 +28,9 @@ const Page = ({ params }) => {
 
   return (
     <>
-      <div className="flex flex-col">
-        <p>{name}</p>
-        <p>{color}</p>
-        <Image src={image} alt="image" width={250} height={100} />
-      </div>
+      <p>{name}</p>
+      <p>{color}</p>
+      <Image src={image} alt="image" width={250} height={100} />
     </>
   );
 };
