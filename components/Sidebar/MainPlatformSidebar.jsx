@@ -48,7 +48,7 @@ const MainShowsSidebar = ({ platforms, params, setShowMenu, items }) => {
   ];
 
   return (
-    <>
+    <div className="flex flex-col ">
       {isShow && shows?.series && (
         <div className="mb-10">
           {routesMenu.map((item) => (
@@ -86,7 +86,7 @@ const MainShowsSidebar = ({ platforms, params, setShowMenu, items }) => {
             onClick={() => handleClick(el.href)}
             key={el.label}
             className={cn(
-              "text-white py-3  rounded-md px-3 hover:bg-[#4c4158] transition cursor-pointer",
+              "text-white py-3  rounded-md px-3 hover:bg-[#4c4158] transition cursor-pointer md:w-[87%]",
               el.active ? "bg-[#4c4158]" : "bg-transparent"
             )}
           >
@@ -94,7 +94,7 @@ const MainShowsSidebar = ({ platforms, params, setShowMenu, items }) => {
           </div>
         ))}
       </div>
-    </>
+    </div>
   );
 };
 
