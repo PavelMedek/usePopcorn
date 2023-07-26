@@ -5,7 +5,7 @@ import RightSidebar from "./RightSidebar";
 import MainPlatformSidebar from "./MainPlatformSidebar";
 import PlatformSidebar from "./PlatformSidebar";
 
-const Sidebar = ({ platforms, params }) => {
+const Sidebar = ({ platforms, params, setShowMenu }) => {
   return (
     <>
       <LeftSidebar>
@@ -17,6 +17,7 @@ const Sidebar = ({ platforms, params }) => {
           platforms={platforms}
           params={params}
           items="show"
+          setShowMenu={setShowMenu}
         />
       </RightSidebar>
     </>

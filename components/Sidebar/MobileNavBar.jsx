@@ -1,37 +1,40 @@
-import Link from "next/link";
-import React from "react";
-import PlatformSidebar from "./PlatformSidebar";
-import MainPlatformSidebar from "./MainPlatformSidebar";
+"use client";
+
+import React, { useState } from "react";
+import Sidebar from "./Sidebar";
+import { BiMenu } from "react-icons/bi";
 import { AiOutlineCloseCircle } from "react-icons/ai";
 
-const MobileNavBar = ({ setShow, setshowContent, platforms, params }) => {
+const MobileNavBar = ({ platforms, params }) => {
+  const [showMenu, setShowMenu] = useState(false);
+
   return (
-    <div className="z-50 inset-0 min-h-screen absolute bg-[#0d0c0f]">
+    <>
       <button
-        className="absolute right-3 top-3"
-        onClick={() => {
-          setShow(false);
-          setshowContent(true);
-        }}
+        onClick={() => setShowMenu((prev) => !prev)}
+        className="absolute right-4 top-4 hidden md:block"
       >
-        <AiOutlineCloseCircle className="w-10 h-10" />
+        <BiMenu className="w-10 h-10" />
       </button>
 
-      <div className="flex ">
-        <div className="w-24">
-          <PlatformSidebar platforms={platforms} />
+      {showMenu && (
+        <div className="md:fixed md:z-90 md:w-screen md:h-screen md:flex md:bg-[#0d0c0f] md:duration-700 hidden">
+          <button
+            onClick={() => setShowMenu((prev) => !prev)}
+            className="absolute right-8 top-4 hidden md:block z-50"
+          >
+            <AiOutlineCloseCircle className="w-10 h-10" />
+          </button>
+          <nav className="md:flex sticky top-0 h-screen">
+            <Sidebar
+              setShowMenu={setShowMenu}
+              platforms={platforms}
+              params={params}
+            />
+          </nav>
         </div>
-        <div className="bg-[#1A161E] w-full py-16 px-5">
-          <MainPlatformSidebar
-            platforms={platforms}
-            params={params}
-            setShow={setShow}
-            setshowContent={setshowContent}
-            items="show"
-          />
-        </div>
-      </div>
-    </div>
+      )}
+    </>
   );
 };
 

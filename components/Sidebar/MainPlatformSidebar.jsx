@@ -4,13 +4,7 @@ import { cn } from "@/lib/utils";
 import { usePathname, useRouter } from "next/navigation";
 import { AiFillHome } from "react-icons/ai";
 
-const MainShowsSidebar = ({
-  platforms,
-  params,
-  setShow,
-  setshowContent,
-  items,
-}) => {
+const MainShowsSidebar = ({ platforms, params, setShowMenu, items }) => {
   const shows = platforms.find((el) => el.name === params.platformName);
   const router = useRouter();
 
@@ -18,21 +12,19 @@ const MainShowsSidebar = ({
   const [_, platformName, showName] = pathname.split("/");
 
   const handleClick = (title) => {
-    router.push(`/${params.platformName}/${title}`);
-
-    if (setShow && setshowContent) {
-      setShow(false);
-      setshowContent(true);
+    if (setShowMenu) {
+      setShowMenu((prev) => !prev);
     }
+
+    router.push(`/${params.platformName}/${title}`);
   };
 
   const handleMunu = (link) => {
-    router.push(link);
-
-    if (setShow && setshowContent) {
-      setShow(false);
-      setshowContent(true);
+    if (setShowMenu) {
+      setShowMenu((prev) => !prev);
     }
+
+    router.push(link);
   };
 
   const routes = shows?.series.map((item) => ({

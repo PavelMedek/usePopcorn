@@ -1,10 +1,8 @@
 "use client";
 
-import Button from "@/components/Button";
 import { platforms } from "@/lib/data";
-import Link from "next/link";
+
 import { useRouter } from "next/navigation";
-import React, { useEffect } from "react";
 
 const Page = ({ params }) => {
   const showName = params.showName;
