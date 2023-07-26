@@ -19,7 +19,7 @@ const MobileNavBar = ({ platforms, params, profile }) => {
       </button>
 
       {showMenu && (
-        <div className="md:fixed md:z-90 md:w-screen md:h-screen md:flex md:bg-[#0d0c0f] md:duration-700 hidden">
+        <div className="md:fixed md:z-90 md:w-screen md:h-screen md:flex md:flex-col md:bg-[#0d0c0f] md:duration-700 hidden">
           <button
             onClick={() => setShowMenu((prev) => !prev)}
             className="absolute right-5 top-5 hidden md:block z-50"

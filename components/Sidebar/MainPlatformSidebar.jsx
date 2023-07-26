@@ -48,7 +48,7 @@ const MainShowsSidebar = ({ platforms, params, setShowMenu, items }) => {
   ];
 
   return (
-    <div className="flex flex-col md:w-[80%]">
+    <div className="flex flex-col">
       {isShow && shows?.series && (
         <div className="mb-10">
           {routesMenu.map((item) => (
