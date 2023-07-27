@@ -1,4 +1,4 @@
-import MobileNavBar from "@/components/Sidebar/MobileNavBar";
+import MobileNavBar from "@/components/Sidebar/MobileSidebar";
 import "./globals.css";
 import { Inter } from "next/font/google";
 

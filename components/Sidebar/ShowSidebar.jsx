@@ -1,25 +1,25 @@
 "use client";
 
-import LeftSidebar from "./LeftSidebar";
-import RightSidebar from "./RightSidebar";
-import MainPlatformSidebar from "./MainPlatformSidebar";
 import PlatformSidebar from "./PlatformSidebar";
+import LeftSidebarContainer from "./LeftSidebarContainer";
+import RightSidebarContainer from "./RightSidebarContainer";
+import MainShowSidebar from "./MainShowSidebar";
 
 const Sidebar = ({ platforms, params, setShowMenu }) => {
   return (
     <>
-      <LeftSidebar>
+      <LeftSidebarContainer>
         <PlatformSidebar platforms={platforms} />
-      </LeftSidebar>
+      </LeftSidebarContainer>
 
-      <RightSidebar>
-        <MainPlatformSidebar
+      <RightSidebarContainer>
+        <MainShowSidebar
           platforms={platforms}
           params={params}
           items="show"
           setShowMenu={setShowMenu}
         />
-      </RightSidebar>
+      </RightSidebarContainer>
     </>
   );
 };

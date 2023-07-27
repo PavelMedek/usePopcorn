@@ -2,9 +2,9 @@
 
 import { Inter } from "next/font/google";
 
-import ProfileSidebar from "@/components/Sidebar/ProfileSidebar";
 import { platforms } from "@/lib/data";
-import MobileNavBar from "@/components/Sidebar/MobileNavBar";
+import ProfileSidebar from "@/components/Sidebar/ProfileSidebar";
+import MobileNavBar from "@/components/Sidebar/MobileSidebar";
 
 const inter = Inter({ subsets: ["latin"] });
 

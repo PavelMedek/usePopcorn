@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import Sidebar from "./Sidebar";
+import Sidebar from "./ShowSidebar";
 import { BiMenu } from "react-icons/bi";
 import { AiOutlineCloseCircle } from "react-icons/ai";
 import ProfileSidebar from "./ProfileSidebar";

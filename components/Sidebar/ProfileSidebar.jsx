@@ -1,17 +1,17 @@
-import LeftSidebar from "./LeftSidebar";
-import RightSidebar from "./RightSidebar";
 import MainProfileSidebar from "./MainProfileSidebar";
 import PlatformSidebar from "./PlatformSidebar";
+import LeftSidebarContainer from "./LeftSidebarContainer";
+import RightSidebarContainer from "./RightSidebarContainer";
 
 const ProfileSidebar = ({ platforms }) => {
   return (
     <>
-      <LeftSidebar>
+      <LeftSidebarContainer>
         <PlatformSidebar platforms={platforms} />
-      </LeftSidebar>
-      <RightSidebar>
+      </LeftSidebarContainer>
+      <RightSidebarContainer>
         <MainProfileSidebar />
-      </RightSidebar>
+      </RightSidebarContainer>
     </>
   );
 };

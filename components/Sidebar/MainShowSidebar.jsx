@@ -4,7 +4,7 @@ import { cn } from "@/lib/utils";
 import { usePathname, useRouter } from "next/navigation";
 import { AiFillHome } from "react-icons/ai";
 
-const MainShowsSidebar = ({ platforms, params, setShowMenu, items }) => {
+const MainSidebar = ({ platforms, params, setShowMenu, items }) => {
   const shows = platforms.find((el) => el.name === params.platformName);
   const router = useRouter();
 
@@ -98,4 +98,4 @@ const MainShowsSidebar = ({ platforms, params, setShowMenu, items }) => {
   );
 };
 
-export default MainShowsSidebar;
+export default MainSidebar;

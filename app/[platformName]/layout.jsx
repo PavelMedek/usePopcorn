@@ -1,5 +1,5 @@
-import MobileNavBar from "@/components/Sidebar/MobileNavBar";
-import Sidebar from "@/components/Sidebar/Sidebar";
+import MobileNavBar from "@/components/Sidebar/MobileSidebar";
+import Sidebar from "@/components/Sidebar/ShowSidebar";
 import { platforms } from "@/lib/data";
 
 export async function generateMetadata({ params }) {
@@ -18,7 +18,7 @@ export default function Layout({ children, params }) {
 
       <MobileNavBar platforms={platforms} params={params} />
 
-      <div className="w-full flex flex-col p-10">{children}</div>
+      {children}
     </section>
   );
 }
