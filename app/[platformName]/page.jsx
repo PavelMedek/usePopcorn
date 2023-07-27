@@ -49,7 +49,7 @@ const Page = ({ params }) => {
 
         <div className="grid grid-cols-xl lg:grid-cols-lg md:grid-cols-md sm:grid-cols-sm gap-5">
           {shows.map((show) => (
-            <div key={show.slug} className="relative h-44 bg-red-300">
+            <div key={show.slug} className="relative h-44 bg-red-300 z-[-1]">
               <Link href={`${name}/${show.slug}`}>
                 <img
                   src={show.thumbnail}
