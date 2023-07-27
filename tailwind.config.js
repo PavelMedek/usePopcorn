@@ -12,6 +12,11 @@ module.exports = {
         lg: "repeat(auto-fill, minmax(17rem, 1fr))",
         md: "repeat(auto-fill, minmax(15rem, 1fr))",
         sm: "repeat(auto-fill, minmax(15rem, 1fr))",
+
+        show_xl: "repeat(auto-fill, minmax(15rem, 1fr))",
+        show_lg: "repeat(auto-fill, minmax(10rem, 1fr))",
+        show_md: "repeat(auto-fill, minmax(5rem, 1fr))",
+        show_sm: "repeat(auto-fill, minmax(15rem, 1fr))",
       },
     },
     screens: {
