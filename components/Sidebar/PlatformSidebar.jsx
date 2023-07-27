@@ -31,7 +31,7 @@ const PlatformSidebar = ({ platforms }) => {
 
   return (
     <>
-      <div className="pr-4 flex flex-col justify-between min-h-screen py-16 ">
+      <div className="pr-4 flex flex-col justify-between min-h-screen py-16">
         <div>
           {userRoutes.map((item) => (
             <div key={item.label} className="flex gap-3 mb-3">

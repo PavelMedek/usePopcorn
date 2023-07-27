@@ -76,7 +76,10 @@ const Page = ({ params }) => {
         </div>
       </div>
 
-      <div className="h-96">dsa</div>
+      <div className="px-16 md:py-16 md:px-5 gap-10">
+        <h1>test</h1>
+        <p>test</p>
+      </div>
     </div>
   );
 };
