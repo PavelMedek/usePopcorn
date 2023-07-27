@@ -18,7 +18,7 @@ const Page = ({ params }) => {
 
   if (!platform) {
     return (
-      <div className="flex flex-col justify-center items-center min-h-screen text-7xl uppercase gap-3">
+      <div className="flex flex-col justify-center items-center min-h-screen text-7xl uppercase w-full p-16 md:py-16 md:px-5 gap-10">
         <p>No Platform</p>
         <button
           onClick={() => router.back()}
