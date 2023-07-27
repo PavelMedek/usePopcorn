@@ -28,8 +28,8 @@ const Page = ({ params }) => {
   }
 
   return (
-    <div className="w-full flex flex-col p-16 pb-10">
-      <div className="rounded-xl h-[40rem] overflow-hidden md:h-[20rem] xl:h-[30rem] lg:h-[20rem] sm:h-[10rem]">
+    <div className="w-full flex flex-col p-16 md:py-16 md:px-5">
+      <div className="rounded-xl h-[40rem] overflow-hidden md:h-[20rem] xl:h-[30rem] lg:h-[20rem] sm:h-[15rem]">
         <div
           // style={{ backgroundImage: `url(${cover})` }}
           className="w-full bg-cover h-full"
