@@ -1,9 +1,14 @@
 import Image from "next/image";
 import Link from "next/link";
 
-const ShowCard = ({ name, show }) => {
+const ShowCard = ({ name, show, secondary }) => {
+  console.log(name);
+
   return (
-    <Link href={`${name}/${show.slug}`} key={show.slug}>
+    <Link
+      href={secondary ? `/${name}/${show.slug}` : `${name}/${show.slug}`}
+      key={show.slug}
+    >
       <div key={show.slug} className="relative aspect-video">
         <Image src={show.thumbnail} fill alt="thumbnail" />
 

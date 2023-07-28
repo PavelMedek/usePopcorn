@@ -1,6 +1,7 @@
 "use client";
 
 import ShowHeader from "@/components/ShowHeader";
+import ShowList from "@/components/ShowList";
 import { platforms } from "@/lib/data";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
@@ -20,6 +21,9 @@ const Page = ({ params }) => {
   const handleClick = (link) => {
     setActiveLink(link);
   };
+
+  const shows = platform.series;
+  const name = platform.name;
 
   if (!show) {
     return (
@@ -113,8 +117,49 @@ const Page = ({ params }) => {
         </div>
 
         <div>
-          <h2 className="text-2xl uppercase text-[#4C4158]">Photos</h2>
+          <h2 className="text-2xl uppercase text-[#4C4158]">Images</h2>
+          <div className="grid md:grid-cols-2 xl:grid-cols-3 grid-cols-6 gap-3">
+            <div className="relative aspect-square">
+              <Image
+                src="/images/stranger-things.webp"
+                style={{ objectFit: "cover" }}
+                fill
+                alt="st"
+              />
+            </div>
+            <div className="relative aspect-square">
+              <Image
+                src="/images/stranger-things.webp"
+                style={{ objectFit: "cover" }}
+                fill
+                alt="st"
+              />
+            </div>
+            <div className="relative aspect-square">
+              <Image
+                src="/images/stranger-things.webp"
+                style={{ objectFit: "cover" }}
+                fill
+                alt="st"
+              />
+            </div>
+            <div className="relative aspect-square">
+              <Image
+                src="/images/stranger-things.webp"
+                style={{ objectFit: "cover" }}
+                fill
+                alt="st"
+              />
+            </div>
+          </div>
         </div>
+
+        <ShowList
+          shows={shows}
+          name={name}
+          type="Similar shows"
+          secondary={true}
+        />
 
         {/* end component Overview */}
       </div>
