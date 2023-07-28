@@ -7,22 +7,36 @@ const ShowHeaderStats = () => {
         <FaPlay className="w-8 h-8" />
       </div>
       <div className="bg-[#1A161E]/75 flex flex-row items-center justify-start h-40 rounded-2xl pr-2">
-        <h1 className="rotate-90 text-lg uppercase text-[#4C4158]">release</h1>
-        <p className="text-4xl font-semibold w-full text-center">
+        <h1 className="rotate-90 text-lg uppercase text-[#4C4158] md:text-base">
+          release
+        </h1>
+        <p className="text-4xl font-semibold w-full text-center md:text-2xl ">
           April 7, 2023
         </p>
       </div>
       <div className="bg-[#1A161E]/75 flex flex-row items-center h-40 rounded-2xl pr-2">
-        <h1 className="rotate-90 text-lg uppercase text-[#4C4158]">seasons</h1>
-        <p className="text-4xl font-semibold w-full text-center">8</p>
+        <h1 className="rotate-90 text-lg uppercase text-[#4C4158] md:text-base">
+          seasons
+        </h1>
+        <p className="text-4xl font-semibold w-full text-center md:text-2xl">
+          8
+        </p>
       </div>
       <div className="bg-[#1A161E]/75 flex flex-row items-center justify-start h-40 rounded-2xl pr-2">
-        <h1 className="rotate-90 text-lg uppercase text-[#4C4158]">Episodes</h1>
-        <p className="text-4xl font-semibold w-full text-center">52</p>
+        <h1 className="rotate-90 text-lg uppercase text-[#4C4158] md:text-base">
+          Episodes
+        </h1>
+        <p className="text-4xl font-semibold w-full text-center md:text-2xl">
+          52
+        </p>
       </div>
       <div className="bg-[#1A161E]/75 flex flex-row items-center justify-start h-40 rounded-2xl pr-2">
-        <h1 className="rotate-90 text-lg uppercase text-[#4C4158]">Length</h1>
-        <p className="text-4xl font-semibold w-full text-center">80h 42 min</p>
+        <h1 className="rotate-90 text-lg uppercase text-[#4C4158] md:text-base">
+          Length
+        </h1>
+        <p className="text-4xl font-semibold w-full text-center md:text-2xl">
+          80h 42 min
+        </p>
       </div>
     </div>
   );
