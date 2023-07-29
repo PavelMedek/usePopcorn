@@ -2,8 +2,6 @@ import Image from "next/image";
 import Link from "next/link";
 
 const ShowCard = ({ name, show, secondary }) => {
-  console.log(name);
-
   return (
     <Link
       href={secondary ? `/${name}/${show.slug}` : `${name}/${show.slug}`}
@@ -12,7 +10,7 @@ const ShowCard = ({ name, show, secondary }) => {
       <div key={show.slug} className="relative aspect-video">
         <Image src={show.thumbnail} fill alt="thumbnail" />
 
-        <div className="absolute bottom-0 w-full backdrop-blur-sm px-3 py-3">
+        <div className="absolute bottom-0 w-full backdrop-blur-sm px-3 py-3 font-semibold text-sm">
           {show.title}
         </div>
       </div>

@@ -14,7 +14,7 @@ const ShowList = ({ shows, name, type, secondary }) => {
         <p className="underline font-light">Show all</p>
       </div>
 
-      <div className="grid sm:grid-cols-1 md:grid-cols-2 xl:grid-cols-3 grid-cols-4 gap-5">
+      <div className="grid lg:grid-cols-1 xl:grid-cols-2 grid-cols-4 gap-5">
         {shows.map((show) => (
           <ShowCard
             show={show}
