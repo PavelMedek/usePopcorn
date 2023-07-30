@@ -2,7 +2,19 @@ import Link from "next/link";
 import React from "react";
 import ShowCard from "./ShowCard";
 
-const ShowList = ({ shows, name, type, secondary }) => {
+const ShowList = ({ shows, name, type, secondary, random }) => {
+  function shuffleArray(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [array[i], array[j]] = [array[j], array[i]];
+    }
+    return array;
+  }
+
+  if (random) {
+    shuffleArray(shows);
+  }
+
   return (
     <div className="flex flex-col gap-5">
       <div className="flex items-center justify-between">

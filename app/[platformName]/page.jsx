@@ -65,6 +65,7 @@ const Page = ({ params }) => {
             shows={categoryObj.shows}
             name={name}
             type={categoryObj.category}
+            random={true}
           />
         </div>
       ))}
