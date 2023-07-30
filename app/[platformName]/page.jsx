@@ -8,6 +8,7 @@ import { platforms } from "@/lib/data";
 import Link from "next/link";
 import PlatformBillboard from "@/components/PlatformBillboard";
 import ShowList from "@/components/ShowList";
+import { useEffect, useState } from "react";
 
 const Page = ({ params }) => {
   const platform = platforms?.find((el) => el.name === params.platformName);
@@ -18,7 +19,28 @@ const Page = ({ params }) => {
 
   const router = useRouter();
 
-  if (!platform) {
+  const [showsByCategory, setShowsByCategory] = useState([]);
+
+  useEffect(() => {
+    // Categorize shows by category
+    const categorizedShows = shows?.reduce((result, show) => {
+      show.categories.forEach((category) => {
+        const existingCategory = result.find(
+          (cat) => cat.category === category
+        );
+        if (existingCategory) {
+          existingCategory.shows.push(show);
+        } else {
+          result.push({ category, shows: [show] });
+        }
+      });
+      return result;
+    }, []);
+
+    setShowsByCategory(categorizedShows);
+  }, [shows]);
+
+  if (!platform || platforms.length === 0) {
     return (
       <div className="flex flex-col justify-center items-center min-h-screen text-7xl uppercase w-full p-16 md:py-16 md:px-5 gap-10">
         <p>No Platform</p>
@@ -36,6 +58,16 @@ const Page = ({ params }) => {
     <div className="w-full flex flex-col p-16 md:py-16 md:px-5 gap-10">
       <PlatformBillboard cover={cover} />
       <ShowList shows={shows} name={name} type="All" />
+
+      {showsByCategory.map((categoryObj) => (
+        <div key={categoryObj.category}>
+          <ShowList
+            shows={categoryObj.shows}
+            name={name}
+            type={categoryObj.category}
+          />
+        </div>
+      ))}
     </div>
   );
 };

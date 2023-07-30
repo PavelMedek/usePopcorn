@@ -84,6 +84,31 @@ const ShowHeaderStats = () => {
     //   </div>
     // </div>
 
+    // <div className="grid grid-cols-5 gap-5 text-white xl:grid-cols-3 lg:grid-cols-2 sm:grid-cols-1">
+    //   <div className="relative flex aspect-video items-center rounded-xl bg-[#1A161E]">
+    //     <div className="rotate-90">release</div>
+    //     <div className="absolute w-full text-center text-4xl">
+    //       April 7, 2023
+    //     </div>
+    //   </div>
+    //   <div className="relative flex aspect-video items-center rounded-xl bg-[#1A161E]">
+    //     <div className="rotate-90">seasons</div>
+    //     <div className="absolute w-full text-center text-4xl">8</div>
+    //   </div>
+    //   <div className="relative flex aspect-video items-center rounded-xl bg-[#1A161E]">
+    //     <div className="rotate-90">Length</div>
+    //     <div className="absolute w-full text-center text-4xl">80h 42 min</div>
+    //   </div>
+    //   <div className="relative flex aspect-video items-center rounded-xl bg-[#1A161E]">
+    //     <div className="rotate-90">Episodes</div>
+    //     <div className="absolute w-full text-center text-4xl">52</div>
+    //   </div>
+    //   <div className="relative flex aspect-video items-center rounded-xl bg-[#1A161E]">
+    //     <div className="rotate-90">rating</div>
+    //     <div className="absolute w-full text-center text-4xl">80h 42 min</div>
+    //   </div>
+    // </div>
+
     <div className="grid sm:grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 grid-cols-5 gap-5">
       <div className="bg-red-700 flex justify-center items-center aspect-video rounded-xl">
         <FaPlay className="w-8 h-8" />
