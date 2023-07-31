@@ -66,7 +66,7 @@ const OverviewTab = ({ desc, cast, trailer, images, comments }) => {
 
         <div className="flex gap-5 flex-col pb-5">
           {comments.map((commnt) => (
-            <div className="flex flex-row w-full gap-3" key={commnt.name}>
+            <div className="flex flex-row w-full gap-3" key={commnt.image}>
               <div>
                 <div className="relative w-14 h-14 rounded-full">
                   <Image

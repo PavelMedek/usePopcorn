@@ -5,20 +5,24 @@ import ShowCard from "./ShowCard";
 const ShowList = ({ shows, name, type, secondary, random, slice }) => {
   let firstFiveMovies = shows;
 
-  function shuffleArray(array) {
-    for (let i = array.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [array[i], array[j]] = [array[j], array[i]];
-    }
-    return array;
-  }
+  // function shuffleArray(array) {
+  //   for (let i = array.length - 1; i > 0; i--) {
+  //     const j = Math.floor(Math.random() * (i + 1));
+  //     [array[i], array[j]] = [array[j], array[i]];
+  //   }
+  //   return array;
+  // }
 
-  if (random) {
-    firstFiveMovies = shuffleArray(firstFiveMovies);
-  }
+  // if (random) {
+  //   firstFiveMovies = shuffleArray(firstFiveMovies);
+  // }
 
   if (slice) {
     firstFiveMovies = shows.slice(0, 4);
+  }
+
+  if (shows.length === 0) {
+    return <div>No</div>;
   }
 
   return (
