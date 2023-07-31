@@ -1,20 +1,33 @@
 "use client";
 
+import Button from "@/components/Button";
+import OverviewTab from "@/components/OverviewTab";
 import ShowHeader from "@/components/ShowHeader";
 import ShowList from "@/components/ShowList";
 import { platforms } from "@/lib/data";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const Page = ({ params }) => {
+  const [isMounted, setIsMounted] = useState(false);
   const showName = params.showName;
   const router = useRouter();
 
   const platform = platforms.find((el) => el.name === params.platformName);
   const show = platform?.series?.find((el) => el.slug === showName);
-  const { cast, categories, desc, release, slug, title, thumbnail } =
-    show || {};
+  const {
+    cast,
+    categories,
+    desc,
+    release,
+    slug,
+    title,
+    thumbnail,
+    trailer,
+    images,
+    comments,
+  } = show || {};
 
   const [activeLink, setActiveLink] = useState("Overview");
 
@@ -24,6 +37,14 @@ const Page = ({ params }) => {
 
   const shows = platform.series;
   const name = platform.name;
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
+  if (!isMounted) {
+    return null;
+  }
 
   if (!show) {
     return (
@@ -75,93 +96,22 @@ const Page = ({ params }) => {
         </div>
         {/* end component menu */}
 
-        {/* start component Overview */}
-        <div className="w-1/2 md:w-full">
-          <h2 className="text-2xl uppercase text-[#4C4158]">description</h2>
-          <p>{desc}</p>
-        </div>
-
-        <div>
-          <h2 className="text-2xl uppercase text-[#4C4158]">notable cast</h2>
-          <div className="flex gap-5 pt-1">
-            {cast.map((actor) => (
-              <div
-                key={actor}
-                className="flex flex-col gap-2 items-center text-center"
-              >
-                <div className="relative w-24 h-24 rounded-full">
-                  <Image
-                    src="/images/actor.webp"
-                    fill
-                    className="rounded-full"
-                    alt="actor"
-                  />
-                </div>
-                <span className="text-sm">{actor}</span>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        <div>
-          <h2 className="text-2xl uppercase text-[#4C4158]">Trailer</h2>
-          <iframe
-            height="400"
-            src="https://www.youtube.com/embed/b9EkMc79ZSU"
-            title="YouTube video player"
-            frameBorder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            allowFullScreen
-            className="w-1/2 md:w-full"
-          ></iframe>
-        </div>
-
-        <div>
-          <h2 className="text-2xl uppercase text-[#4C4158]">Images</h2>
-          <div className="grid md:grid-cols-2 xl:grid-cols-3 grid-cols-6 gap-3">
-            <div className="relative aspect-square">
-              <Image
-                src="/images/stranger-things.webp"
-                style={{ objectFit: "cover" }}
-                fill
-                alt="st"
-              />
-            </div>
-            <div className="relative aspect-square">
-              <Image
-                src="/images/stranger-things.webp"
-                style={{ objectFit: "cover" }}
-                fill
-                alt="st"
-              />
-            </div>
-            <div className="relative aspect-square">
-              <Image
-                src="/images/stranger-things.webp"
-                style={{ objectFit: "cover" }}
-                fill
-                alt="st"
-              />
-            </div>
-            <div className="relative aspect-square">
-              <Image
-                src="/images/stranger-things.webp"
-                style={{ objectFit: "cover" }}
-                fill
-                alt="st"
-              />
-            </div>
-          </div>
-        </div>
+        <OverviewTab
+          cast={cast}
+          comments={comments}
+          desc={desc}
+          images={images}
+          trailer={trailer}
+        />
 
         <ShowList
           shows={shows}
           name={name}
           type="Similar shows"
           secondary={true}
+          slice={true}
+          random={true}
         />
-
-        {/* end component Overview */}
       </div>
     </div>
   );

@@ -2,7 +2,9 @@ import Link from "next/link";
 import React from "react";
 import ShowCard from "./ShowCard";
 
-const ShowList = ({ shows, name, type, secondary, random }) => {
+const ShowList = ({ shows, name, type, secondary, random, slice }) => {
+  let firstFiveMovies = shows;
+
   function shuffleArray(array) {
     for (let i = array.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));
@@ -12,7 +14,11 @@ const ShowList = ({ shows, name, type, secondary, random }) => {
   }
 
   if (random) {
-    shuffleArray(shows);
+    firstFiveMovies = shuffleArray(firstFiveMovies);
+  }
+
+  if (slice) {
+    firstFiveMovies = shows.slice(0, 4);
   }
 
   return (
@@ -27,7 +33,7 @@ const ShowList = ({ shows, name, type, secondary, random }) => {
       </div>
 
       <div className="grid lg:grid-cols-1 xl:grid-cols-2 grid-cols-4 gap-5">
-        {shows.map((show) => (
+        {firstFiveMovies.map((show) => (
           <ShowCard
             show={show}
             key={show.slug}

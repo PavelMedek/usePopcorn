@@ -57,7 +57,7 @@ const Page = ({ params }) => {
   return (
     <div className="w-full flex flex-col p-16 md:py-16 md:px-5 gap-10">
       <PlatformBillboard cover={cover} />
-      <ShowList shows={shows} name={name} type="All" />
+      <ShowList slice={true} shows={shows} name={name} type="All" />
 
       {showsByCategory.map((categoryObj) => (
         <div key={categoryObj.category}>
@@ -66,6 +66,7 @@ const Page = ({ params }) => {
             name={name}
             type={categoryObj.category}
             random={true}
+            slice={true}
           />
         </div>
       ))}
