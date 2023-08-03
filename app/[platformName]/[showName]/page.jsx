@@ -1,39 +1,36 @@
 "use client";
 
-import Button from "@/components/Button";
 import OverviewTab from "@/components/OverviewTab";
 import ShowHeader from "@/components/ShowHeader";
 import ShowList from "@/components/ShowList";
 import { platforms } from "@/lib/data";
-import Image from "next/image";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
+import qs from "query-string";
+import EpisodesTab from "@/components/EpisodesTab";
+import BlogsTab from "@/components/BlogsTab";
 
 const Page = ({ params }) => {
   const [isMounted, setIsMounted] = useState(false);
   const showName = params.showName;
   const router = useRouter();
+  const [activeLink, setActiveLink] = useState("");
+  const searchParams = useSearchParams();
 
   const platform = platforms.find((el) => el.name === params.platformName);
   const show = platform?.series?.find((el) => el.slug === showName);
+
   const {
     cast,
     categories,
     desc,
-    release,
-    slug,
     title,
     thumbnail,
     trailer,
     images,
     comments,
+    episodes,
   } = show || {};
-
-  const [activeLink, setActiveLink] = useState("Overview");
-
-  const handleClick = (link) => {
-    setActiveLink(link);
-  };
 
   const shows = platform.series;
   const name = platform.name;
@@ -41,6 +38,31 @@ const Page = ({ params }) => {
   useEffect(() => {
     setIsMounted(true);
   }, []);
+
+  useEffect(() => {
+    const search = searchParams.get("activeTab");
+    setActiveLink(search || "Overview"); // Set 'about' as the default value
+  }, [searchParams]);
+
+  const handleTabClick = (tab, value) => {
+    const current = qs.parse(searchParams.toString());
+
+    const query = {
+      ...current,
+      [value]: tab,
+    };
+
+    const url = qs.stringifyUrl(
+      {
+        url: window.location.href,
+        query,
+      },
+      { skipNull: true }
+    );
+
+    router.push(url);
+    setActiveLink(tab);
+  };
 
   if (!isMounted) {
     return null;
@@ -67,7 +89,7 @@ const Page = ({ params }) => {
         {/* start component menu */}
         <div className="flex border border-white w-fit rounded-xl">
           <p
-            onClick={() => handleClick("Overview")}
+            onClick={() => handleTabClick("Overview", "activeTab")}
             className=" py-2 cursor-pointer px-5 rounded-l-xl"
             style={{
               background: activeLink === "Overview" ? "#4C4158" : "#1A161E",
@@ -76,7 +98,7 @@ const Page = ({ params }) => {
             Overview
           </p>
           <p
-            onClick={() => handleClick("Episodes")}
+            onClick={() => handleTabClick("Episodes", "activeTab")}
             className="py-2 cursor-pointer px-5"
             style={{
               background: activeLink === "Episodes" ? "#4C4158" : "#1A161E",
@@ -85,7 +107,7 @@ const Page = ({ params }) => {
             Episodes
           </p>
           <p
-            onClick={() => handleClick("Articles")}
+            onClick={() => handleTabClick("Articles", "activeTab")}
             className="py-2 cursor-pointer px-5 rounded-r-xl"
             style={{
               background: activeLink === "Articles" ? "#4C4158" : "#1A161E",
@@ -96,13 +118,18 @@ const Page = ({ params }) => {
         </div>
         {/* end component menu */}
 
-        <OverviewTab
-          cast={cast}
-          comments={comments}
-          desc={desc}
-          images={images}
-          trailer={trailer}
-        />
+        {activeLink === "Overview" && (
+          <OverviewTab
+            cast={cast}
+            comments={comments}
+            desc={desc}
+            images={images}
+            trailer={trailer}
+          />
+        )}
+
+        {activeLink === "Episodes" && <EpisodesTab episodes={episodes} />}
+        {activeLink === "Articles" && <BlogsTab />}
 
         <ShowList
           shows={shows}
