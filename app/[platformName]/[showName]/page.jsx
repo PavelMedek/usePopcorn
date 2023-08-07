@@ -32,8 +32,8 @@ const Page = ({ params }) => {
     episodes,
   } = show || {};
 
-  const shows = platform.series;
-  const name = platform.name;
+  const shows = platform?.series;
+  const name = platform?.name;
 
   useEffect(() => {
     setIsMounted(true);

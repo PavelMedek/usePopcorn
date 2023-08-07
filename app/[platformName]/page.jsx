@@ -18,9 +18,9 @@ const shuffleArray = (array) => {
 
 const Page = ({ params }) => {
   const { platformName } = params;
-  const platform = platforms?.find((el) => el.name === platformName) || {};
+  const platform = platforms?.find((el) => el.name === platformName);
 
-  const { color, image, name, cover, series } = platform;
+  const { color, image, name, cover, series } = platform || {};
 
   const shows = useMemo(() => series || [], [series]);
   const router = useRouter();
@@ -51,7 +51,7 @@ const Page = ({ params }) => {
 
   return (
     <div className="w-full flex flex-col p-16 md:py-16 md:px-5 gap-10">
-      {platforms.length === 0 || !platform ? (
+      {!platform ? (
         <div className="flex flex-col justify-center items-center min-h-screen text-7xl uppercase w-full p-16 md:py-16 md:px-5 gap-10">
           <p>No Platform</p>
           <button

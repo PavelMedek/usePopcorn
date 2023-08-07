@@ -14,7 +14,7 @@ const EpisodesTab = ({ episodes }) => {
     ?.filter((episode) => episode.season === selectedSeason)
     .sort((a, b) => a.episode - b.episode);
 
-  if (episodes === undefined) {
+  if (!episodes || episodes.length === 0) {
     return <div>No Episodes found!</div>;
   }
 
