@@ -20,12 +20,10 @@ const EpisodesTab = ({ episodes }) => {
     return <div>No Episodes found!</div>;
   }
 
-  console.log(filteredEpisodes);
-
   return (
     <div className="flex flex-col gap-5">
-      <div className="flex justify-between items-center">
-        <h2 className="text-2xl uppercase text-[#4C4158] mb-3">description</h2>
+      <div className="flex justify-between items-center ">
+        <h2 className="text-2xl uppercase text-[#4C4158]">Epizody</h2>
         <select
           className="bg-[#1A161E] text-[#4C4158] p-4"
           onChange={handleSeasonChange}
@@ -44,7 +42,7 @@ const EpisodesTab = ({ episodes }) => {
             <Link
               href="/"
               key={episode.name}
-              className="flex items-center gap-6 py-5 px-3 hover:bg-[#1A161E] lg:flex-col lg:items-start"
+              className="flex items-center gap-6 py-5 px-3 hover:bg-[#1A161E] lg:flex-col lg:items-start first:bg-[#1A161E]"
             >
               <div className="w-12 lg:hidden">
                 <span className="text-3xl">{episode.episode}</span>
