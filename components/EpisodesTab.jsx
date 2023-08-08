@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import React, { useState } from "react";
 
 const EpisodesTab = ({ episodes }) => {
@@ -40,7 +41,8 @@ const EpisodesTab = ({ episodes }) => {
       <div>
         <ul className="flex flex-col gap-3">
           {filteredEpisodes.map((episode) => (
-            <li
+            <Link
+              href="/"
               key={episode.name}
               className="flex items-center gap-6 py-5 px-3 hover:bg-[#1A161E] lg:flex-col lg:items-start"
             >
@@ -65,7 +67,7 @@ const EpisodesTab = ({ episodes }) => {
                 </div>
                 <p className="text-[#989898] font-light">{episode.desc}</p>
               </div>
-            </li>
+            </Link>
           ))}
         </ul>
       </div>
