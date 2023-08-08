@@ -27,7 +27,7 @@ const MainSidebar = ({ platforms, params, setShowMenu, items }) => {
     router.push(link);
   };
 
-  const routes = shows?.series.map((item) => ({
+  const routes = shows?.series?.map((item) => ({
     href: `/${item.slug}`,
     label: item.title,
     active: pathname === `/${platformName}/${item.slug}`,

@@ -1,3 +1,4 @@
+import Image from "next/image";
 import React, { useState } from "react";
 
 const EpisodesTab = ({ episodes }) => {
@@ -18,8 +19,10 @@ const EpisodesTab = ({ episodes }) => {
     return <div>No Episodes found!</div>;
   }
 
+  console.log(filteredEpisodes);
+
   return (
-    <div>
+    <div className="flex flex-col gap-5">
       <div className="flex justify-between items-center">
         <h2 className="text-2xl uppercase text-[#4C4158] mb-3">description</h2>
         <select
@@ -35,11 +38,33 @@ const EpisodesTab = ({ episodes }) => {
         </select>
       </div>
       <div>
-        <ul>
+        <ul className="flex flex-col gap-3">
           {filteredEpisodes.map((episode) => (
-            <li key={episode.name}>
-              {episode.name} (Season {episode.season}, Episode {episode.episode}
-              )
+            <li
+              key={episode.name}
+              className="flex items-center gap-6 py-5 px-3 hover:bg-[#1A161E] lg:flex-col lg:items-start"
+            >
+              <div className="w-12 lg:hidden">
+                <span className="text-3xl">{episode.episode}</span>
+              </div>
+              <Image
+                src={episode.thumbnail}
+                width={100}
+                height={50}
+                alt="fdsad"
+              />
+              <div className="flex flex-col justify-between w-full">
+                <div className="flex items-center justify-between">
+                  <h2 className="text-xl">
+                    <span className="hidden lg:inline-block">
+                      {episode.episode}.
+                    </span>{" "}
+                    {episode.name}
+                  </h2>
+                  <span>{episode.length} min</span>
+                </div>
+                <p className="text-[#989898] font-light">{episode.desc}</p>
+              </div>
             </li>
           ))}
         </ul>
