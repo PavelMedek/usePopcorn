@@ -33,7 +33,7 @@ const MainSidebar = ({ platforms, params, setShowMenu, items }) => {
     label: item.title,
     active: pathname === `/${platformName}/${item.slug}`,
     activeToo:
-      pathname === `/${platformName}/${item.slug}/clanek/${articleOrEpisode}`,
+      pathname === `/${platformName}/${item.slug}/${neco}/${articleOrEpisode}`,
     pathname,
   }));
 

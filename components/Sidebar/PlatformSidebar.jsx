@@ -19,7 +19,7 @@ const PlatformSidebar = ({ platforms }) => {
     active: pathname === `/${item.name}`,
     activeToo: pathname === `/${item.name}/${showName}`,
     activeTooo:
-      pathname === `/${item.name}/${showName}/clanek/${articleOrEpisode}`,
+      pathname === `/${item.name}/${showName}/${neco}/${articleOrEpisode}`,
     color: item.color,
     image: item.image,
   }));

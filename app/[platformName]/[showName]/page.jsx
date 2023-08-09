@@ -130,7 +130,9 @@ const Page = ({ params }) => {
           />
         )}
 
-        {activeLink === "Episodes" && <EpisodesTab episodes={episodes} />}
+        {activeLink === "Episodes" && (
+          <EpisodesTab platform={slug} episodes={episodes} />
+        )}
         {activeLink === "Articles" && (
           <BlogsTab articles={articles} platform={slug} />
         )}
