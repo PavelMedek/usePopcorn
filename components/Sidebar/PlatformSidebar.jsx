@@ -10,13 +10,16 @@ import { user } from "@/lib/data";
 const PlatformSidebar = ({ platforms }) => {
   const pathname = usePathname();
 
-  const [_, platformName, showName] = pathname.split("/");
+  const [_, platformName, showName, neco, articleOrEpisode] =
+    pathname.split("/");
 
   const routes = platforms.map((item) => ({
     href: `/${item.name}`,
     label: item.name,
     active: pathname === `/${item.name}`,
     activeToo: pathname === `/${item.name}/${showName}`,
+    activeTooo:
+      pathname === `/${item.name}/${showName}/clanek/${articleOrEpisode}`,
     color: item.color,
     image: item.image,
   }));
@@ -63,6 +66,8 @@ const PlatformSidebar = ({ platforms }) => {
                     item.active
                       ? item.color
                       : item.activeToo
+                      ? item.color
+                      : item.activeTooo
                       ? item.color
                       : "transparent"
                   }`,

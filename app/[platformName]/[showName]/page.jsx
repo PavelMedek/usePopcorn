@@ -30,6 +30,8 @@ const Page = ({ params }) => {
     images,
     comments,
     episodes,
+    articles,
+    slug,
   } = show || {};
 
   const shows = platform?.series;
@@ -129,7 +131,9 @@ const Page = ({ params }) => {
         )}
 
         {activeLink === "Episodes" && <EpisodesTab episodes={episodes} />}
-        {activeLink === "Articles" && <BlogsTab />}
+        {activeLink === "Articles" && (
+          <BlogsTab articles={articles} platform={slug} />
+        )}
 
         <ShowList
           shows={shows}

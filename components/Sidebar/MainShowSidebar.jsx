@@ -9,7 +9,8 @@ const MainSidebar = ({ platforms, params, setShowMenu, items }) => {
   const router = useRouter();
 
   const pathname = usePathname();
-  const [_, platformName, showName] = pathname.split("/");
+  const [_, platformName, showName, neco, articleOrEpisode] =
+    pathname.split("/");
 
   const handleClick = (title) => {
     if (setShowMenu) {
@@ -31,6 +32,9 @@ const MainSidebar = ({ platforms, params, setShowMenu, items }) => {
     href: `/${item.slug}`,
     label: item.title,
     active: pathname === `/${platformName}/${item.slug}`,
+    activeToo:
+      pathname === `/${platformName}/${item.slug}/clanek/${articleOrEpisode}`,
+    pathname,
   }));
 
   const isShow = items === "show";
@@ -87,7 +91,11 @@ const MainSidebar = ({ platforms, params, setShowMenu, items }) => {
             key={el.label}
             className={cn(
               "text-white py-3  rounded-md px-3 hover:bg-[#4c4158] transition cursor-pointer",
-              el.active ? "bg-[#4c4158]" : "bg-transparent"
+              el.active
+                ? "bg-[#4c4158]"
+                : el.activeToo
+                ? "bg-[#4c4158]"
+                : "bg-transparent"
             )}
           >
             {el.label}
