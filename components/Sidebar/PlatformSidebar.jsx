@@ -21,6 +21,7 @@ const PlatformSidebar = ({ platforms }) => {
     activeTooo:
       pathname === `/${item.name}/${showName}/${neco}/${articleOrEpisode}`,
     color: item.color,
+    activeCat: pathname === `/${item.name}/categorie/${neco}`,
     image: item.image,
   }));
 
@@ -68,6 +69,8 @@ const PlatformSidebar = ({ platforms }) => {
                       : item.activeToo
                       ? item.color
                       : item.activeTooo
+                      ? item.color
+                      : item.activeCat
                       ? item.color
                       : "transparent"
                   }`,

@@ -1,5 +1,6 @@
 "use client";
 
+import ForYouList from "@/components/ForYouList";
 import PlatformBillboard from "@/components/PlatformBillboard";
 import { platforms } from "@/lib/data";
 

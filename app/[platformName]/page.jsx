@@ -64,7 +64,13 @@ const Page = ({ params }) => {
       ) : (
         <>
           <PlatformBillboard cover={cover} />
-          <ShowList slice={true} shows={shows} name={name} type="All" />
+          <ShowList
+            slice={true}
+            shows={shows}
+            name={name}
+            type="All"
+            link={true}
+          />
 
           {showsByCategory.map(({ category, shows }) => (
             <div key={category}>
@@ -74,6 +80,7 @@ const Page = ({ params }) => {
                 type={category}
                 random={true}
                 slice={true}
+                link={true}
               />
             </div>
           ))}

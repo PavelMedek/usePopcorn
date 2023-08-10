@@ -144,6 +144,7 @@ const Page = ({ params }) => {
           secondary={true}
           slice={true}
           random={true}
+          link={false}
         />
       </div>
     </div>

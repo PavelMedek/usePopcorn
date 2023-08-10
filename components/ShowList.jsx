@@ -2,20 +2,8 @@ import Link from "next/link";
 import React from "react";
 import ShowCard from "./ShowCard";
 
-const ShowList = ({ shows, name, type, secondary, random, slice }) => {
+const ShowList = ({ shows, name, type, secondary, random, slice, link }) => {
   let firstFiveMovies = shows;
-
-  // function shuffleArray(array) {
-  //   for (let i = array.length - 1; i > 0; i--) {
-  //     const j = Math.floor(Math.random() * (i + 1));
-  //     [array[i], array[j]] = [array[j], array[i]];
-  //   }
-  //   return array;
-  // }
-
-  // if (random) {
-  //   firstFiveMovies = shuffleArray(firstFiveMovies);
-  // }
 
   if (slice) {
     firstFiveMovies = shows.slice(0, 4);
@@ -33,7 +21,14 @@ const ShowList = ({ shows, name, type, secondary, random, slice }) => {
         ) : (
           <h1 className="text-3xl font-bold">{type}</h1>
         )}
-        <p className="underline font-light">Show all</p>
+        {link && (
+          <Link
+            href={`${name}/categorie/${type}`}
+            className="underline font-light"
+          >
+            Show all
+          </Link>
+        )}
       </div>
 
       <div className="grid lg:grid-cols-1 xl:grid-cols-2 grid-cols-4 gap-5">
