@@ -43,41 +43,21 @@ const PlatformClient = ({ series, platform, cover, name }) => {
 
   return (
     <div className="w-full flex flex-col p-16 md:py-16 md:px-5 gap-10">
-      {!platform ? (
-        <div className="flex flex-col justify-center items-center min-h-screen text-7xl uppercase w-full p-16 md:py-16 md:px-5 gap-10">
-          <p>No Platform</p>
-          <button
-            onClick={() => router.back()}
-            className="bg-blue-500 py-4 w-36 rounded-md font-bold text-lg text-center uppercase sm:py-2"
-          >
-            Back
-          </button>
-        </div>
-      ) : (
-        <>
-          <PlatformBillboard cover={cover} />
+      <PlatformBillboard cover={cover} />
+      <ShowList slice={true} shows={shows} name={name} type="All" link={true} />
+
+      {showsByCategory.map(({ category, shows }) => (
+        <div key={category}>
           <ShowList
-            slice={true}
             shows={shows}
             name={name}
-            type="All"
+            type={category}
+            random={true}
+            slice={true}
             link={true}
           />
-
-          {showsByCategory.map(({ category, shows }) => (
-            <div key={category}>
-              <ShowList
-                shows={shows}
-                name={name}
-                type={category}
-                random={true}
-                slice={true}
-                link={true}
-              />
-            </div>
-          ))}
-        </>
-      )}
+        </div>
+      ))}
     </div>
   );
 };

@@ -1,5 +1,6 @@
 import { platforms } from "@/lib/data";
 import ShowClient from "./ShowClient";
+import NotFound from "@/components/NotFound";
 
 const Page = ({ params }) => {
   const showName = params.showName;
@@ -24,14 +25,7 @@ const Page = ({ params }) => {
   const name = platform?.name;
 
   if (!show) {
-    return (
-      <div className="flex flex-col justify-center items-center min-h-screen text-7xl uppercase w-full p-16 md:py-16 md:px-5 gap-10">
-        <p>No show</p>
-        <button className="bg-blue-500 py-4 w-36 rounded-md font-bold text-lg text-center uppercase sm:py-2">
-          Back
-        </button>
-      </div>
-    );
+    return <NotFound type="show" />;
   }
 
   return (
