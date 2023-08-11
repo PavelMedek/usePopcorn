@@ -14,9 +14,9 @@ const Tab = ({ label, active, onClick, isFirst, isLast }) => (
 
 const TabsMenu = ({ activeLink, handleTabClick }) => {
   const tabs = [
-    { label: "Overview", id: "Overview" },
-    { label: "Episodes", id: "Episodes" },
-    { label: "Articles", id: "Articles" },
+    { label: "Přehled", id: "Overview" },
+    { label: "Epizody", id: "Episodes" },
+    { label: "Články", id: "Articles" },
   ];
 
   return (
