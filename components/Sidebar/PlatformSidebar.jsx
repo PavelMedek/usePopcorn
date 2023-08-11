@@ -5,12 +5,15 @@ import { AiOutlineLogout } from "react-icons/ai";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { user } from "@/lib/data";
+import { profile } from "@/lib/data";
 
 const PlatformSidebar = ({ platforms }) => {
   const pathname = usePathname();
+  const currentUser = profile;
   const [_, platformName, showName, neco, articleOrEpisode] =
     pathname.split("/");
+
+  const activeRouthProfile = pathname === "/profile";
 
   const generateSidebarItem = (item, isActive) => (
     <div key={item.label} className="flex gap-3 mb-3">
@@ -32,14 +35,6 @@ const PlatformSidebar = ({ platforms }) => {
     </div>
   );
 
-  const userRoutes = user.map((item) => ({
-    href: "/profile",
-    label: item.name,
-    isActive: pathname === `/${item.name}`,
-    color: item.color,
-    image: item.image,
-  }));
-
   const platformRoutes = platforms.map((item) => ({
     href: `/${item.name}`,
     label: item.name,
@@ -55,7 +50,24 @@ const PlatformSidebar = ({ platforms }) => {
   return (
     <div className="pr-4 flex flex-col justify-between min-h-screen py-16">
       <div>
-        {userRoutes.map((item) => generateSidebarItem(item, item.isActive))}
+        <div className="flex gap-3 mb-3">
+          <div
+            className="w-1 rounded-r-full"
+            style={{
+              backgroundColor: activeRouthProfile ? "#4C4158" : "transparent",
+            }}
+          ></div>
+          <Link href="/profile">
+            <Image
+              width={50}
+              height={50}
+              src={currentUser.image}
+              className="rounded-full"
+              alt={currentUser.name}
+            />
+          </Link>
+        </div>
+
         {platformRoutes.map((item) => generateSidebarItem(item, item.isActive))}
       </div>
 
