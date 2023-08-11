@@ -43,6 +43,7 @@ const Page = ({ params }) => {
       articles={articles}
       slug={slug}
       name={name}
+      showName={showName}
     />
   );
 };

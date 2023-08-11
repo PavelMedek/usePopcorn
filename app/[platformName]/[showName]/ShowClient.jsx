@@ -24,7 +24,9 @@ const ShowClient = ({
   slug,
   shows,
   name,
+  showName,
 }) => {
+  const showRelease = shows.find((el) => el.slug === showName).release;
   const [isMounted, setIsMounted] = useState(false);
   const router = useRouter();
   const [activeLink, setActiveLink] = useState("");
@@ -65,7 +67,13 @@ const ShowClient = ({
 
   return (
     <div className="w-full flex flex-col pb-7">
-      <ShowHeader categories={categories} thumbnail={thumbnail} title={title} />
+      <ShowHeader
+        categories={categories}
+        thumbnail={thumbnail}
+        title={title}
+        episodes={episodes}
+        showRelease={showRelease}
+      />
       <div className="px-16 md:px-5 flex flex-col gap-10">
         <TabsMenu activeLink={activeLink} handleTabClick={handleTabClick} />
 
