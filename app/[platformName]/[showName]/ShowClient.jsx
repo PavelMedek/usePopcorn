@@ -22,6 +22,7 @@ const ShowClient = ({
   articles,
   slug,
   shows,
+  name,
 }) => {
   const [isMounted, setIsMounted] = useState(false);
   const router = useRouter();

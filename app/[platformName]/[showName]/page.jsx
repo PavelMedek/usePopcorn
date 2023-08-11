@@ -1,5 +1,4 @@
 import { platforms } from "@/lib/data";
-
 import ShowClient from "./ShowClient";
 
 const Page = ({ params }) => {
@@ -52,6 +51,7 @@ const Page = ({ params }) => {
       episodes={episodes}
       articles={articles}
       slug={slug}
+      name={name}
     />
   );
 };
