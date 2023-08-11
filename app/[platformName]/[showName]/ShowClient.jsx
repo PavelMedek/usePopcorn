@@ -8,6 +8,7 @@ import ShowList from "@/components/ShowList";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import qs from "query-string";
+import TabsMenu from "@/components/TabsMenu";
 
 const ShowClient = ({
   cast,
@@ -66,37 +67,7 @@ const ShowClient = ({
     <div className="w-full flex flex-col pb-7">
       <ShowHeader categories={categories} thumbnail={thumbnail} title={title} />
       <div className="px-16 md:px-5 flex flex-col gap-10">
-        {/* start component menu */}
-        <div className="flex border border-white w-fit rounded-xl">
-          <p
-            onClick={() => handleTabClick("Overview", "activeTab")}
-            className=" py-2 cursor-pointer px-5 rounded-l-xl"
-            style={{
-              background: activeLink === "Overview" ? "#4C4158" : "#1A161E",
-            }}
-          >
-            Overview
-          </p>
-          <p
-            onClick={() => handleTabClick("Episodes", "activeTab")}
-            className="py-2 cursor-pointer px-5"
-            style={{
-              background: activeLink === "Episodes" ? "#4C4158" : "#1A161E",
-            }}
-          >
-            Episodes
-          </p>
-          <p
-            onClick={() => handleTabClick("Articles", "activeTab")}
-            className="py-2 cursor-pointer px-5 rounded-r-xl"
-            style={{
-              background: activeLink === "Articles" ? "#4C4158" : "#1A161E",
-            }}
-          >
-            Articles
-          </p>
-        </div>
-        {/* end component menu */}
+        <TabsMenu activeLink={activeLink} handleTabClick={handleTabClick} />
 
         {activeLink === "Overview" && (
           <OverviewTab

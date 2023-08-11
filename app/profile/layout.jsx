@@ -1,5 +1,3 @@
-"use client";
-
 import { Inter } from "next/font/google";
 
 import { platforms } from "@/lib/data";
@@ -9,8 +7,6 @@ import MobileNavBar from "@/components/Sidebar/MobileSidebar";
 const inter = Inter({ subsets: ["latin"] });
 
 export default function ProfileLayout({ children, params }) {
-  console.log(params);
-
   return (
     <section className="min-h-screen flex text-white">
       <nav className="flex sticky top-0 h-screen md:hidden">
