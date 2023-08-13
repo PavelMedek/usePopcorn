@@ -15,7 +15,9 @@ const EpisodePage = ({ params }) => {
     return <NotFound type="EPISODE" />;
   }
 
-  return <EpisodeClient episode={episode} show={show} />;
+  return (
+    <EpisodeClient episode={episode} show={show} episodes={show.episodes} />
+  );
 };
 
 export default EpisodePage;

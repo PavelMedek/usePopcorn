@@ -3,8 +3,9 @@ import EpisodeHeaderImage from "./EpisodeHeaderImage";
 import EpisodeHeaderTitle from "./EpisodeHeaderTitle";
 import EpisodeHeaderCategories from "./EpisodeHeaderCategories";
 import EpisodeHeaderStats from "./EpisodeHeaderStats";
+import EpisodeSwitcher from "./EpisodeSwitcher";
 
-const EpisodeHeader = ({ episode, showTitle }) => {
+const EpisodeHeader = ({ episode, showTitle, episodes }) => {
   return (
     <>
       <EpisodeHeaderImage cover={episode.cover} />
@@ -15,6 +16,7 @@ const EpisodeHeader = ({ episode, showTitle }) => {
           season={episode.season}
           episode={episode.episode}
         />
+        <EpisodeSwitcher episodes={episodes} episode={episode} />
         <EpisodeHeaderCategories categories={episode.categories} />
         <EpisodeHeaderStats release={episode.release} length={episode.length} />
       </div>

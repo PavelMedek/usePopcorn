@@ -1,9 +1,9 @@
 "use client";
 
-import BlogsTab from "@/components/BlogsTab";
-import EpisodesTab from "@/components/EpisodesTab";
-import OverviewTab from "@/components/OverviewTab";
-import ShowHeader from "@/components/ShowHeader";
+import BlogsTab from "@/components/Blogs/BlogsTab";
+import EpisodesTab from "@/components/Episodes/EpisodesTab";
+import OverviewTab from "@/components/Overview/OverviewTab";
+import ShowHeader from "@/components/ShowHeader/ShowHeader";
 import ShowList from "@/components/ShowList";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
@@ -97,7 +97,7 @@ const ShowClient = ({
         <ShowList
           shows={shows}
           name={name}
-          type="Similar shows"
+          type="Podobné seriály"
           secondary={true}
           slice={true}
           random={true}

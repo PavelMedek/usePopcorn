@@ -1,4 +1,4 @@
-import PlatformBillboard from "@/components/PlatformBillboard";
+import PlatformBillboard from "@/components/Billboard";
 
 const ArticleClient = ({ article }) => {
   return (

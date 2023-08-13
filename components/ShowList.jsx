@@ -1,6 +1,7 @@
 import Link from "next/link";
 import React from "react";
 import ShowCard from "./ShowCard";
+import Image from "next/image";
 
 const ShowList = ({ shows, name, type, secondary, random, slice, link }) => {
   let firstFiveMovies = shows;
@@ -10,7 +11,17 @@ const ShowList = ({ shows, name, type, secondary, random, slice, link }) => {
   }
 
   if (shows.length === 0) {
-    return <div>No</div>;
+    return (
+      <div className="flex flex-col items-center gap-5">
+        <h1 className="text-5xl uppercase font-bold">No shows found</h1>
+        <Image
+          src="/images/Oops! 404 Error with a broken robot-cuate.svg"
+          width={300}
+          height={300}
+          alt="not found"
+        />
+      </div>
+    );
   }
 
   return (
@@ -26,7 +37,7 @@ const ShowList = ({ shows, name, type, secondary, random, slice, link }) => {
             href={`${name}/categorie/${type}`}
             className="underline font-light"
           >
-            Show all
+            Zobrazit vše
           </Link>
         )}
       </div>

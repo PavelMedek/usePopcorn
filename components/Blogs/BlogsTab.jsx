@@ -1,15 +1,28 @@
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
+import Heading from "../Heading";
 
 const BlogsTab = ({ articles, platform }) => {
   if (!articles || articles.length === 0) {
-    return <div>No Articles found!</div>;
+    return (
+      <div className="flex flex-col items-center gap-5">
+        <h1 className="text-5xl uppercase font-bold">
+          Nebyly nalezeny žádné články
+        </h1>
+        <Image
+          src="/images/Oops! 404 Error with a broken robot-cuate.svg"
+          width={300}
+          height={300}
+          alt="not found"
+        />
+      </div>
+    );
   }
 
   return (
     <div className="flex flex-col gap-5">
-      <h2 className="text-2xl uppercase text-[#4C4158]">Články</h2>
+      <Heading text="články" />
 
       <div>
         <ul className="flex flex-col gap-3">

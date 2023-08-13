@@ -2,7 +2,7 @@
 
 import { useEffect, useMemo, useState } from "react";
 import { useRouter } from "next/navigation";
-import PlatformBillboard from "@/components/PlatformBillboard";
+import PlatformBillboard from "@/components/Billboard";
 import ShowList from "@/components/ShowList";
 
 const shuffleArray = (array) => {
@@ -44,7 +44,7 @@ const PlatformClient = ({ series, platform, cover, name }) => {
   return (
     <div className="w-full flex flex-col p-16 md:py-16 md:px-5 gap-10">
       <PlatformBillboard cover={cover} />
-      <ShowList slice={true} shows={shows} name={name} type="All" link={true} />
+      <ShowList slice={true} shows={shows} name={name} type="Vše" link={true} />
 
       {showsByCategory.map(({ category, shows }) => (
         <div key={category}>
