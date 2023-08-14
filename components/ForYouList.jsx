@@ -3,8 +3,8 @@ import React from "react";
 import ShowCard from "./ShowCard";
 import useFilteredPlatforms from "@/hooks/useFilteredPlatforms";
 
-const ForYouList = () => {
-  const filteredPlatforms = useFilteredPlatforms(4);
+const ForYouList = ({ profile, platforms }) => {
+  const filteredPlatforms = useFilteredPlatforms(profile, platforms, 4);
 
   if (!filteredPlatforms || filteredPlatforms.length === 0) {
     return null;

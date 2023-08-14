@@ -1,5 +1,3 @@
-"use client";
-
 import ShowCard from "@/components/ShowCard";
 import { platforms } from "@/lib/data";
 import Image from "next/image";

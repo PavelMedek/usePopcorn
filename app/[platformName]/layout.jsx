@@ -1,6 +1,6 @@
 import MobileNavBar from "@/components/Sidebar/MobileSidebar";
 import Sidebar from "@/components/Sidebar/ShowSidebar";
-import { platforms } from "@/lib/data";
+import { platforms, profile } from "@/lib/data";
 
 export async function generateMetadata({ params }) {
   const title = params.platformName;
@@ -13,10 +13,14 @@ export default function Layout({ children, params }) {
   return (
     <section className="min-h-screen flex text-white">
       <nav className="flex sticky top-0 h-screen md:hidden">
-        <Sidebar platforms={platforms} params={params} />
+        <Sidebar platforms={platforms} params={params} profile={profile} />
       </nav>
 
-      <MobileNavBar platforms={platforms} params={params} />
+      <MobileNavBar
+        platforms={platforms}
+        params={params}
+        profileArr={profile}
+      />
 
       {children}
     </section>

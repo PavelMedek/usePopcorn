@@ -5,11 +5,11 @@ import LeftSidebarContainer from "./LeftSidebarContainer";
 import RightSidebarContainer from "./RightSidebarContainer";
 import MainShowSidebar from "./MainShowSidebar";
 
-const Sidebar = ({ platforms, params, setShowMenu }) => {
+const Sidebar = ({ platforms, params, setShowMenu, profile }) => {
   return (
     <>
       <LeftSidebarContainer>
-        <PlatformSidebar platforms={platforms} />
+        <PlatformSidebar platforms={platforms} profile={profile} />
       </LeftSidebarContainer>
 
       <RightSidebarContainer>

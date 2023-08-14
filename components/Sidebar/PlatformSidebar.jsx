@@ -5,9 +5,8 @@ import { AiOutlineLogout } from "react-icons/ai";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { profile } from "@/lib/data";
 
-const PlatformSidebar = ({ platforms }) => {
+const PlatformSidebar = ({ platforms, profile }) => {
   const pathname = usePathname();
   const currentUser = profile;
   const [_, platformName, showName, neco, articleOrEpisode] =

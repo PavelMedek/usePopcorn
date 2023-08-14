@@ -3,11 +3,11 @@ import PlatformSidebar from "./PlatformSidebar";
 import LeftSidebarContainer from "./LeftSidebarContainer";
 import RightSidebarContainer from "./RightSidebarContainer";
 
-const ProfileSidebar = ({ platforms }) => {
+const ProfileSidebar = ({ platforms, profile }) => {
   return (
     <>
       <LeftSidebarContainer>
-        <PlatformSidebar platforms={platforms} />
+        <PlatformSidebar platforms={platforms} profile={profile} />
       </LeftSidebarContainer>
       <RightSidebarContainer>
         <MainProfileSidebar />

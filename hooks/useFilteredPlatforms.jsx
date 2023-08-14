@@ -1,12 +1,14 @@
 "use client";
-
-import { platforms, profile } from "@/lib/data";
 import { useEffect, useMemo, useState } from "react";
 
-export default function useFilteredPlatforms(totalToShow = 5000) {
+export default function useFilteredPlatforms(
+  profile,
+  platforms,
+  totalToShow = 5000
+) {
   const [filteredPlatforms, setFilteredPlatforms] = useState([]);
 
-  const forYou = useMemo(() => profile.forYou, []);
+  const forYou = useMemo(() => profile.forYou, [profile.forYou]);
 
   useEffect(() => {
     if (!forYou || forYou.length === 0) return;
@@ -26,7 +28,7 @@ export default function useFilteredPlatforms(totalToShow = 5000) {
     });
 
     setFilteredPlatforms(filteredData);
-  }, [forYou, totalToShow]);
+  }, [forYou, totalToShow, platforms]);
 
   return filteredPlatforms;
 }
