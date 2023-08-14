@@ -1,7 +1,9 @@
 import React from "react";
+import ProfileClient from "./ProfileClient";
+import { profile } from "@/lib/data";
 
 const Page = () => {
-  return <div className="flex flex-col">Page</div>;
+  return <ProfileClient profile={profile} />;
 };
 
 export default Page;

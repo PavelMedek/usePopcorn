@@ -13,7 +13,8 @@ const PlatformSidebar = ({ platforms }) => {
   const [_, platformName, showName, neco, articleOrEpisode] =
     pathname.split("/");
 
-  const activeRouthProfile = pathname === "/profile";
+  const activeRouthProfile =
+    pathname === "/profile" || pathname === "/profile/my-list";
 
   const generateSidebarItem = (item, isActive) => (
     <div key={item.label} className="flex gap-3 mb-3">
