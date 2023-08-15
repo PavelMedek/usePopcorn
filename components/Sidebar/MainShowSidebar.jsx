@@ -13,7 +13,7 @@ const MainSidebar = ({ platforms, params, setShowMenu, items }) => {
   const [_, platformName, showName, neco, articleOrEpisode] =
     pathname.split("/");
 
-  const shows = platforms.find((el) => el.name === params.platformName);
+  const shows = platforms?.find((el) => el.name === params.platformName);
   const filteredShows = shows?.series?.filter((item) =>
     item.title.toLowerCase().includes(searchQuery.toLowerCase())
   );
@@ -40,7 +40,9 @@ const MainSidebar = ({ platforms, params, setShowMenu, items }) => {
   };
 
   const isShow = items === "show";
-  const platformColor = platforms.find((el) => el.name === platformName)?.color;
+  const platformColor = platforms?.find(
+    (el) => el.name === platformName
+  )?.color;
 
   const routesMenu = [
     {
@@ -52,7 +54,7 @@ const MainSidebar = ({ platforms, params, setShowMenu, items }) => {
     },
   ];
 
-  const routes = filteredShows.map((item) => ({
+  const routes = filteredShows?.map((item) => ({
     href: `/${item.slug}`,
     label: item.title,
     active: pathname === `/${platformName}/${item.slug}`,

@@ -42,7 +42,7 @@ const PlatformSidebar = ({ platforms, profile }) => {
     </div>
   );
 
-  const platformRoutes = platforms.map((item) => ({
+  const platformRoutes = platforms?.map((item) => ({
     href: `/${item.name}`,
     label: item.name,
     isActive:
@@ -75,7 +75,9 @@ const PlatformSidebar = ({ platforms, profile }) => {
           </Link>
         </div>
 
-        {platformRoutes.map((item) => generateSidebarItem(item, item.isActive))}
+        {platformRoutes?.map((item) =>
+          generateSidebarItem(item, item.isActive)
+        )}
       </div>
 
       <Link href="/" className="flex gap-3">
