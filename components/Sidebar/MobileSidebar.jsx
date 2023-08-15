@@ -28,7 +28,11 @@ const MobileNavBar = ({ platforms, params, profile, profileArr }) => {
           </button>
           <nav className="md:flex sticky top-0 h-screen">
             {profile ? (
-              <ProfileSidebar platforms={platforms} profile={profileArr} />
+              <ProfileSidebar
+                platforms={platforms}
+                profile={profileArr}
+                setShowMenu={setShowMenu}
+              />
             ) : (
               <Sidebar
                 setShowMenu={setShowMenu}

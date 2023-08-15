@@ -15,7 +15,12 @@ const PlatformSidebar = ({ platforms, profile }) => {
   const activeRouthProfile =
     pathname === "/profile" ||
     pathname === "/profile/my-list" ||
-    pathname === "/profile/for-you";
+    pathname === "/profile/for-you" ||
+    pathname === "/profile/platforms" ||
+    pathname === "/profile/tv-shows" ||
+    pathname === `/profile/tv-shows/${neco}` ||
+    pathname === `/profile/tv-shows/${neco}/add` ||
+    pathname === `/profile/categories`;
 
   const generateSidebarItem = (item, isActive) => (
     <div key={item.label} className="flex gap-3 mb-3">
