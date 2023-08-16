@@ -17,11 +17,14 @@ const PlatformSidebar = ({ platforms, profile }) => {
     pathname === "/profile/my-list" ||
     pathname === "/profile/for-you" ||
     pathname === "/profile/platforms" ||
+    pathname === "/profile/platforms/add" ||
     pathname === "/profile/tv-shows" ||
     pathname === `/profile/tv-shows/${neco}` ||
     pathname === `/profile/tv-shows/${neco}/add` ||
     pathname === `/profile/categories` ||
-    pathname === `/profile/blogs`;
+    pathname === `/profile/blogs` ||
+    pathname === `/profile/categories/add` ||
+    pathname === `/profile/blogs/add`;
 
   const generateSidebarItem = (item, isActive) => (
     <div key={item.label} className="flex gap-3 mb-3">

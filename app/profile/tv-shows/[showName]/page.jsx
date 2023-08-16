@@ -9,10 +9,6 @@ const page = ({ params }) => {
     .flatMap((platform) => platform.series)
     .find((serie) => serie.slug === episodeName);
 
-  if (!show || !show.episodes) {
-    return <div>Show not found.</div>;
-  }
-
   return <ShowClient show={show} params={params} />;
 };
 

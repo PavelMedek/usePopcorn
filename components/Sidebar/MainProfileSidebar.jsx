@@ -50,7 +50,9 @@ const MainProfileSidebar = ({ profile, setShowMenu }) => {
       href: `/profile/platforms`,
       label: "Platforms",
       icon: <GiFlatPlatform />,
-      active: pathname === "/profile/platforms",
+      active:
+        pathname === "/profile/platforms" ||
+        pathname === "/profile/platforms/add",
     },
     {
       href: `/profile/tv-shows`,
@@ -65,14 +67,17 @@ const MainProfileSidebar = ({ profile, setShowMenu }) => {
       href: `/profile/categories`,
       label: "Categories",
       icon: <BiCategoryAlt />,
-      active: pathname === "/profile/categories",
+      active:
+        pathname === "/profile/categories" ||
+        pathname === "/profile/categories/add",
     },
 
     {
       href: `/profile/blogs`,
       label: "Blogs",
       icon: <BiLogoBlogger />,
-      active: pathname === "/profile/blogs",
+      active:
+        pathname === "/profile/blogs" || pathname === "/profile/blogs/add",
     },
   ];
 

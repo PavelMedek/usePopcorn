@@ -1,10 +1,12 @@
 "use client";
 
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 
 const BlogsClient = ({ platforms }) => {
   const [selectedSeries, setSelectedSeries] = useState(platforms[0].series[0]);
+  const router = useRouter();
 
   const handleSeriesChange = (event) => {
     const selectedSlug = event.target.value;
@@ -33,7 +35,10 @@ const BlogsClient = ({ platforms }) => {
               ))}
           </select>
 
-          <button className="bg-blue-500 py-4 px-6 rounded-md font-bold text-lg text-center uppercase sm:py-2 md:w-full">
+          <button
+            className="bg-blue-500 py-4 px-6 rounded-md font-bold text-lg text-center uppercase sm:py-2 md:w-full"
+            onClick={() => router.push("blogs/add")}
+          >
             + ADD
           </button>
         </div>

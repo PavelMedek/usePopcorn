@@ -1,11 +1,18 @@
-import React from "react";
+"use client";
+
+import { useRouter } from "next/navigation";
 
 const CategoriesClient = ({ allCategories }) => {
+  const router = useRouter();
+
   return (
     <div className="w-full flex flex-col p-16 md:py-16 md:px-5 gap-10">
       <div className="flex justify-between items-center md:flex-col md:items-start gap-5">
         <h1 className="uppercase text-5xl">Categories</h1>
-        <button className="bg-blue-500 py-4 px-6 rounded-md font-bold text-lg text-center uppercase sm:py-2 md:w-full">
+        <button
+          className="bg-blue-500 py-4 px-6 rounded-md font-bold text-lg text-center uppercase sm:py-2 md:w-full"
+          onClick={() => router.push("categories/add")}
+        >
           + ADD
         </button>
       </div>
