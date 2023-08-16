@@ -32,6 +32,10 @@ const BlogsClient = ({ platforms }) => {
                 </option>
               ))}
           </select>
+
+          <button className="bg-blue-500 py-4 px-6 rounded-md font-bold text-lg text-center uppercase sm:py-2 md:w-full">
+            + ADD
+          </button>
         </div>
         <div className="article">
           {selectedSeries.articles ? (
