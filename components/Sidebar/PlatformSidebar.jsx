@@ -20,7 +20,8 @@ const PlatformSidebar = ({ platforms, profile }) => {
     pathname === "/profile/tv-shows" ||
     pathname === `/profile/tv-shows/${neco}` ||
     pathname === `/profile/tv-shows/${neco}/add` ||
-    pathname === `/profile/categories`;
+    pathname === `/profile/categories` ||
+    pathname === `/profile/blogs`;
 
   const generateSidebarItem = (item, isActive) => (
     <div key={item.label} className="flex gap-3 mb-3">

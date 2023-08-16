@@ -8,7 +8,7 @@ const MyListPage = () => {
 
   const selectedShows = myList
     ?.map((show) => {
-      const platform = platforms.find(
+      const platform = platforms?.find(
         (platform) => platform.name === show.platformName
       );
 
@@ -28,6 +28,10 @@ const MyListPage = () => {
 
   if (!myList || myList.length === 0) {
     return <NotFound type="show" />;
+  }
+
+  if (!platforms || platforms.length === 0) {
+    return <NotFound type="blogs" />;
   }
 
   return (

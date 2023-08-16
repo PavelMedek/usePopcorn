@@ -1,14 +1,14 @@
 import React from "react";
-import TVShowsClient from "./TVShowsClient";
+import BlogsClient from "./BlogsClient";
 import { platforms } from "@/lib/data";
 import NotFound from "@/components/NotFound";
 
-const TVShowsPage = () => {
+const BlogsPage = () => {
   if (!platforms || platforms.length === 0) {
     return <NotFound type="blogs" />;
   }
 
-  return <TVShowsClient platforms={platforms} />;
+  return <BlogsClient platforms={platforms} />;
 };
 
-export default TVShowsPage;
+export default BlogsPage;
