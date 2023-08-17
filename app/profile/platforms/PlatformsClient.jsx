@@ -1,5 +1,6 @@
 "use client";
 
+import AdminHeading from "@/components/AdminComponents/AdminHeading";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import React from "react";
@@ -9,15 +10,10 @@ const PlatformsClient = ({ platforms }) => {
 
   return (
     <div className="w-full flex flex-col p-16 md:py-16 md:px-5 gap-10">
-      <div className="flex justify-between items-center md:flex-col md:items-start gap-5">
-        <h1 className="uppercase text-5xl">Platforms</h1>
-        <button
-          className="bg-blue-500 py-4 px-6 rounded-md font-bold text-lg text-center uppercase sm:py-2 md:w-full"
-          onClick={() => router.push("platforms/add")}
-        >
-          + ADD
-        </button>
-      </div>
+      <AdminHeading
+        text="Platforms"
+        handleClick={() => router.push("platforms/add")}
+      />
 
       <div className="flex flex-col gap-5">
         {platforms.map((platform, index) => (
@@ -33,8 +29,12 @@ const PlatformsClient = ({ platforms }) => {
                 <p>{platform.name}</p>
               </div>
               <div className="flex gap-5">
-                <button>Add</button>
-                <button>Delete</button>
+                <button className="bg-blue-500 py-2 px-3 rounded-md">
+                  Edit
+                </button>
+                <button className="bg-red-500 py-2 px-3 rounded-md">
+                  Delete
+                </button>
               </div>
             </div>
           </div>

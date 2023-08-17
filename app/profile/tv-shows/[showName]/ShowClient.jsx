@@ -1,5 +1,6 @@
 "use client";
 
+import AdminHeading from "@/components/AdminComponents/AdminHeading";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import React from "react";
@@ -10,30 +11,20 @@ const ShowClient = ({ show, params }) => {
   if (!show || !show.episodes) {
     return (
       <div className="w-full flex flex-col p-16 md:py-16 md:px-5 gap-10">
-        <div className="flex justify-between items-center md:flex-col md:items-start gap-5">
-          <h1 className="uppercase text-5xl">TV SHOWS</h1>
-          <button
-            className="bg-blue-500 py-4 px-6 rounded-md font-bold text-lg text-center uppercase sm:py-2 md:w-full"
-            onClick={() => router.push(`${params.showName}/add`)}
-          >
-            + ADD
-          </button>
-        </div>{" "}
+        <AdminHeading
+          text="Episodes"
+          handleClick={() => router.push(`${params.showName}/add`)}
+        />
       </div>
     );
   }
 
   return (
     <div className="w-full flex flex-col p-16 md:py-16 md:px-5 gap-10">
-      <div className="flex justify-between items-center md:flex-col md:items-start gap-5">
-        <h1 className="uppercase text-5xl">TV SHOWS</h1>
-        <button
-          className="bg-blue-500 py-4 px-6 rounded-md font-bold text-lg text-center uppercase sm:py-2 md:w-full"
-          onClick={() => router.push(`${params.showName}/add`)}
-        >
-          + ADD
-        </button>
-      </div>
+      <AdminHeading
+        text="Episodes"
+        handleClick={() => router.push(`${params.showName}/add`)}
+      />
       <div className="flex flex-col gap-5">
         {show.episodes?.map((episode) => (
           <div key={episode.slug}>
@@ -48,8 +39,12 @@ const ShowClient = ({ show, params }) => {
                 <h3>{episode.name}</h3>
               </div>
               <div className="flex gap-5 md:justify-between md:w-full">
-                <button>Add Episode</button>
-                <button>Delete</button>
+                <button className="bg-blue-500 py-2 px-3 rounded-md md:w-full">
+                  Edit Episode
+                </button>
+                <button className="bg-red-500 py-2 px-3 rounded-md md:w-full">
+                  Delete
+                </button>
               </div>
             </div>
           </div>

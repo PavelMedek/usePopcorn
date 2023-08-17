@@ -47,16 +47,18 @@ const BlogsClient = ({ platforms }) => {
             selectedSeries.articles.map((article, index) => (
               <div
                 key={index}
-                className="mb-4 bg-[#1A161E] p-3 flex justify-between md:flex-col"
+                className="mb-4 bg-[#1A161E] p-3 flex justify-between md:flex-col items-center gap-3"
               >
                 <h4 className="text-lg font-semibold">
                   {article.title} - {selectedSeries.title}
                 </h4>
-                <div className="flex gap-5 md:justify-between">
-                  <button onClick={() => router.push(`tv-shows/${show.slug}`)}>
-                    Edit Blog
+                <div className="flex gap-5 md:w-full">
+                  <button className="bg-blue-500 py-2 px-3 rounded-md md:w-full">
+                    Edit
                   </button>
-                  <button>Delete</button>
+                  <button className="bg-red-500 py-2 px-3 rounded-md md:w-full">
+                    Delete
+                  </button>
                 </div>
               </div>
             ))
