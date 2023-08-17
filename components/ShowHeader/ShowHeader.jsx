@@ -2,6 +2,7 @@ import ShowHeaderImage from "./ShowHeaderImage";
 import ShowHeaderTitle from "./ShowHeaderTitle";
 import ShowHeaderCategories from "./ShowHeaderCategories";
 import ShowHeaderStats from "./ShowHeaderStats";
+import AddToMyListButton from "./AddToMyListButton";
 
 const ShowHeader = ({
   categories,
