@@ -6,7 +6,7 @@ import { BiMenu } from "react-icons/bi";
 import { AiOutlineCloseCircle } from "react-icons/ai";
 import ProfileSidebar from "./ProfileSidebar";
 
-const MobileNavBar = ({ platforms, params, profile, profileArr }) => {
+const MobileNavBar = ({ platforms, params, profile, profileArr, series }) => {
   const [showMenu, setShowMenu] = useState(false);
 
   return (
@@ -39,6 +39,7 @@ const MobileNavBar = ({ platforms, params, profile, profileArr }) => {
                 platforms={platforms}
                 params={params}
                 profile={profileArr}
+                series={series}
               />
             )}
           </nav>

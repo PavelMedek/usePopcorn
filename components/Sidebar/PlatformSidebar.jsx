@@ -6,7 +6,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
-const PlatformSidebar = ({ platforms, profile }) => {
+const PlatformSidebar = ({ profile, platforms }) => {
   const pathname = usePathname();
   const currentUser = profile;
   const [_, platformName, showName, neco, articleOrEpisode] =

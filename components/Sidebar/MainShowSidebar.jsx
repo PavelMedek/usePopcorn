@@ -6,15 +6,14 @@ import { AiFillHome } from "react-icons/ai";
 import { useState } from "react";
 import { IoSearch } from "react-icons/io5";
 
-const MainSidebar = ({ platforms, params, setShowMenu, items }) => {
+const MainSidebar = ({ platforms, params, setShowMenu, items, series }) => {
   const [searchQuery, setSearchQuery] = useState("");
   const router = useRouter();
   const pathname = usePathname();
   const [_, platformName, showName, neco, articleOrEpisode] =
     pathname.split("/");
 
-  const shows = platforms?.find((el) => el.name === params.platformName);
-  const filteredShows = shows?.series?.filter((item) =>
+  const filteredShows = series?.filter((item) =>
     item.title.toLowerCase().includes(searchQuery.toLowerCase())
   );
 
@@ -65,7 +64,7 @@ const MainSidebar = ({ platforms, params, setShowMenu, items }) => {
 
   return (
     <div className="flex flex-col">
-      {isShow && shows?.series && (
+      {isShow && (
         <div className="mb-10">
           {routesMenu.map((item) => (
             <div
