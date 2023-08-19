@@ -1,26 +1,22 @@
-import ShowCard from "@/components/ShowCard";
-import { platforms } from "@/lib/data";
 import Image from "next/image";
-import React from "react";
+
+import getPlatformData from "@/actions/getPlatformData";
+import getShowsByCategory from "@/actions/getShowsByCategory";
+
+import ShowCard from "@/components/ShowCard";
 
 const page = ({ params }) => {
   const platformName = params.platformName;
   const categoryName = decodeURIComponent(params.categoryName);
 
-  const platform = platforms.find((platform) => platform.name === platformName);
+  const platform = getPlatformData(params.platformName);
 
-  if (!platform) {
-    return <div>Platform not found.</div>;
-  }
+  const showsInSelectedCategory = getShowsByCategory(
+    platformName,
+    categoryName
+  );
 
-  const showsInSelectedCategory =
-    categoryName === "Vše"
-      ? platform.series
-      : platform.series.filter((serie) =>
-          serie.categories.includes(categoryName)
-        );
-
-  if (showsInSelectedCategory.length === 0) {
+  if (!showsInSelectedCategory || showsInSelectedCategory.length === 0) {
     return (
       <div className="flex flex-col items-center gap-5 justify-center w-full">
         <h1 className="text-5xl uppercase font-bold">No shows found</h1>
@@ -44,7 +40,7 @@ const page = ({ params }) => {
           <ShowCard
             show={show}
             key={index}
-            name={platformName}
+            name={show.platformSlug}
             secondary={true}
           />
         ))}
