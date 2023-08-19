@@ -1,12 +1,15 @@
-import { platforms } from "@/lib/data";
+import { getShowsByPlatform } from "@/actions/getShowsByPlatform";
+import getPlatformData from "@/actions/getPlatformData";
+
 import PlatformClient from "./PlatformClient";
 import NotFound from "@/components/NotFound";
 
 const Page = ({ params }) => {
   const { platformName } = params;
-  const platform = platforms?.find((el) => el.name === platformName);
+  const platform = getPlatformData(platformName);
+  const shows = getShowsByPlatform(platformName);
 
-  const { name, cover, series } = platform || {};
+  const { name, cover } = platform || {};
 
   if (!platform) {
     return <NotFound type="platform" />;
@@ -14,7 +17,7 @@ const Page = ({ params }) => {
 
   return (
     <PlatformClient
-      series={series}
+      series={shows}
       platform={platform}
       cover={cover}
       name={name}
