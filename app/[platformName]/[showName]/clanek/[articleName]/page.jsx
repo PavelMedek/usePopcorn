@@ -1,4 +1,3 @@
-import PlatformBillboard from "@/components/Billboard";
 import { platforms } from "@/lib/data";
 import ArticleClient from "./ArticleClient";
 import NotFound from "@/components/NotFound";

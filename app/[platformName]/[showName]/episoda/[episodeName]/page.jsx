@@ -1,23 +1,24 @@
-import { platforms } from "@/lib/data";
+"use client";
+
+import getEpisodes from "@/actions/getEpisodes";
+import getShow from "@/actions/getShow";
+import getEpisode from "@/actions/getEpisode";
 
 import EpisodeClient from "./EpisodeClient";
 import NotFound from "@/components/NotFound";
 
 const EpisodePage = ({ params }) => {
-  const showName = params.showName;
-  const episodeName = params.episodeName;
+  const { platformName, showName, episodeName } = params;
 
-  const platform = platforms.find((el) => el.name === params.platformName);
-  const show = platform?.series?.find((el) => el.slug === showName);
-  const episode = show?.episodes.find((el) => el.slug === episodeName);
+  const episode = getEpisode(platformName, showName, episodeName);
+  const show = getShow(platformName, showName);
+  const episodes = getEpisodes(show?.episodes);
 
   if (!episode) {
     return <NotFound type="EPISODE" />;
   }
 
-  return (
-    <EpisodeClient episode={episode} show={show} episodes={show.episodes} />
-  );
+  return <EpisodeClient episode={episode} show={show} episodes={episodes} />;
 };
 
 export default EpisodePage;

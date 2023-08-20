@@ -1,5 +1,3 @@
-import Button from "@/components/Button";
-import Image from "next/image";
 import React from "react";
 import EpisodeHeader from "@/components/EpisodeHeader/EpisodeHeader";
 import Description from "@/components/Overview/Description";
