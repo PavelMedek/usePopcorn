@@ -1,14 +1,12 @@
-import { platforms } from "@/lib/data";
+import getArticle from "@/actions/getArticle";
+
 import ArticleClient from "./ArticleClient";
 import NotFound from "@/components/NotFound";
 
 const ArticlePage = ({ params }) => {
-  const showName = params.showName;
-  const articleName = params.articleName;
+  const { platformName, showName, articleName } = params;
 
-  const platform = platforms.find((el) => el.name === params.platformName);
-  const show = platform?.series?.find((el) => el.slug === showName);
-  const article = show?.articles?.find((el) => el.slug === articleName);
+  const article = getArticle(platformName, showName, articleName);
 
   if (!article) {
     return <NotFound type="Article" />;
