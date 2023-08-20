@@ -1,11 +1,20 @@
-import { platforms } from "@/lib/data";
+import { getShowsByPlatform } from "@/actions/getShowsByPlatform";
+import getEpisodes from "@/actions/getEpisodes";
+import getArticles from "@/actions/getArticles";
+import getPlatformData from "@/actions/getPlatformData";
+import getShow from "@/actions/getShow";
+
 import ShowClient from "./ShowClient";
 import NotFound from "@/components/NotFound";
 
 const Page = ({ params }) => {
-  const showName = params.showName;
-  const platform = platforms.find((el) => el.name === params.platformName);
-  const show = platform?.series?.find((el) => el.slug === showName);
+  const { platformName, showName } = params;
+
+  const show = getShow(platformName, showName);
+  const episodes = getEpisodes(show?.episodes);
+  const articles = getArticles(show?.articles);
+  const shows = getShowsByPlatform(platformName);
+  const name = getPlatformData(platformName)?.name;
 
   const {
     cast,
@@ -16,13 +25,8 @@ const Page = ({ params }) => {
     trailer,
     images,
     comments,
-    episodes,
-    articles,
     slug,
   } = show || {};
-
-  const shows = platform?.series;
-  const name = platform?.name;
 
   if (!show) {
     return <NotFound type="show" />;
