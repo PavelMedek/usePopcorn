@@ -8,7 +8,7 @@ const MyListClient = ({ selectedShows }) => {
       <div className="grid lg:grid-cols-1 xl:grid-cols-2 grid-cols-4 gap-5">
         {selectedShows.map((series) => (
           <ShowCard
-            name={series.platformName}
+            name={series.platformSlug}
             show={series}
             key={series.slug}
             secondary={true}

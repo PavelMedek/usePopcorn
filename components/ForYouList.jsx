@@ -1,12 +1,13 @@
 import Link from "next/link";
-import React from "react";
+
 import ShowCard from "./ShowCard";
-import useFilteredPlatforms from "@/hooks/useFilteredPlatforms";
 
-const ForYouList = ({ profile, platforms }) => {
-  const filteredPlatforms = useFilteredPlatforms(profile, platforms, 4);
+import getForYouList from "@/actions/getForYouList";
 
-  if (!filteredPlatforms || filteredPlatforms.length === 0) {
+const ForYouList = ({ forYou, shows }) => {
+  const filteredSeries = getForYouList(shows, forYou, 4);
+
+  if (!filteredSeries || filteredSeries.length === 0) {
     return null;
   }
 
@@ -19,16 +20,14 @@ const ForYouList = ({ profile, platforms }) => {
         </Link>
       </div>
       <div className="grid lg:grid-cols-1 xl:grid-cols-2 grid-cols-4 gap-5">
-        {filteredPlatforms?.map((platform) =>
-          platform.series.map((series) => (
-            <ShowCard
-              name={platform.name}
-              show={series}
-              key={series.slug}
-              secondary={true}
-            />
-          ))
-        )}
+        {filteredSeries?.map((series) => (
+          <ShowCard
+            name={series.platformSlug}
+            show={series}
+            key={series.slug}
+            secondary={true}
+          />
+        ))}
       </div>
     </div>
   );

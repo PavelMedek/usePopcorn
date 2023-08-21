@@ -1,28 +1,11 @@
-import { platforms } from "@/lib/data";
-import ShowCard from "./ShowCard";
 import Link from "next/link";
 
-const MyList = ({ myList }) => {
-  const selectedShows = myList
-    ?.map((show) => {
-      const platform = platforms.find(
-        (platform) => platform.name === show.platformName
-      );
+import ShowCard from "./ShowCard";
 
-      if (platform) {
-        const series = platform.series.find(
-          (series) => series.slug === show.slug
-        );
+import getShowsFromMyList from "@/actions/getShowsFromMyList";
 
-        if (series) {
-          return { platformName: show.platformName, ...series };
-        }
-      }
-
-      return null;
-    })
-    .filter((show) => show !== null)
-    .slice(0, 4);
+const MyList = ({ myList, shows }) => {
+  const selectedShows = getShowsFromMyList(myList, shows, 4);
 
   if (!myList || myList.length === 0) {
     return null;
@@ -39,7 +22,7 @@ const MyList = ({ myList }) => {
       <div className="grid lg:grid-cols-1 xl:grid-cols-2 grid-cols-4 gap-5">
         {selectedShows.map((series) => (
           <ShowCard
-            name={series.platformName}
+            name={series.platformSlug}
             show={series}
             key={series.slug}
             secondary={true}

@@ -1,14 +1,18 @@
-import React from "react";
 import ProfileClient from "./ProfileClient";
-import { profile, platforms } from "@/lib/data";
 import NotFound from "@/components/NotFound";
 
+import getCurrentProfile from "@/actions/getCurrentProfile";
+import getShows from "@/actions/getShows";
+
 const Page = () => {
-  if (!platforms || platforms.length === 0) {
-    return <NotFound type="blogs" />;
+  const profile = getCurrentProfile();
+  const shows = getShows();
+
+  if (!shows || shows.length === 0) {
+    return <NotFound type="shows" />;
   }
 
-  return <ProfileClient profile={profile} platforms={platforms} />;
+  return <ProfileClient profile={profile} shows={shows} />;
 };
 
 export default Page;
