@@ -1,7 +1,19 @@
-import ShowCard from "@/components/ShowCard";
-import React from "react";
+"use client";
 
-const MyListClient = ({ selectedShows }) => {
+import { useRouter } from "next/navigation";
+
+import getShowsFromMyList from "@/actions/getShowsFromMyList";
+import ShowCard from "@/components/ShowCard";
+import { useEffect } from "react";
+
+const MyListClient = ({ myList, shows }) => {
+  const selectedShows = getShowsFromMyList(myList, shows);
+  const router = useRouter();
+
+  useEffect(() => {
+    router.refresh();
+  }, [router]);
+
   return (
     <div className="w-full flex flex-col p-16 md:py-16 md:px-5 gap-10">
       <h1 className="uppercase text-5xl">My List</h1>

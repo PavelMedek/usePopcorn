@@ -1,4 +1,4 @@
-const geForYouList = (series, forYou, maxToShow = series.length) => {
+const getForYouList = (series, forYou, maxToShow = series.length) => {
   const filteredSeries = series.filter((show) =>
     show.categories.some((category) => forYou?.includes(category))
   );
@@ -10,4 +10,4 @@ const geForYouList = (series, forYou, maxToShow = series.length) => {
   return filteredSeries;
 };
 
-export default geForYouList;
+export default getForYouList;
