@@ -75,6 +75,10 @@ export default function App() {
 
   const router = useRouter();
 
+  useEffect(() => {
+    router.refresh(router.asPath);
+  }, [router]);
+
   return (
     <div className="watch w-screen h-screen relative">
       <div
