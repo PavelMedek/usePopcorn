@@ -134,9 +134,11 @@ export default function App() {
           }}
         />
 
-        <div className="test inline-block">
-          {formatTime(currentTime)}/{formatTime(videoDuration)}
-        </div>
+        {videoDuration > 0 && (
+          <div className="test inline-block">
+            {formatTime(currentTime)}/{formatTime(videoDuration)}
+          </div>
+        )}
 
         <div onClick={toggleFullscreen}>
           <button className="test px-8 py-4 bg-white text-black rounded-full z-40">
