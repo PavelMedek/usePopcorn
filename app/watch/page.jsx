@@ -10,6 +10,7 @@ export default function App() {
   const [volume, setVolume] = useState(0.5);
   const [currentTime, setCurrentTime] = useState(0);
   const [videoDuration, setVideoDuration] = useState(0);
+  const [metadataLoaded, setMetadataLoaded] = useState(false);
 
   const videoRef = useRef(null);
 
@@ -63,6 +64,7 @@ export default function App() {
 
   const handleLoadedMetadata = () => {
     setVideoDuration(videoRef.current.duration);
+    setMetadataLoaded(true);
   };
 
   const formatTime = (timeInSeconds) => {
@@ -76,8 +78,8 @@ export default function App() {
   const router = useRouter();
 
   useEffect(() => {
-    router.refresh();
-  }, [router]);
+    setMetadataLoaded(false);
+  }, [videoRef]);
 
   return (
     <div className="watch w-screen h-screen relative">
@@ -140,7 +142,7 @@ export default function App() {
 
         <div className="test inline-block">
           {formatTime(currentTime)}/
-          {videoDuration > 0 ? formatTime(videoDuration) : "Loading..."}
+          {metadataLoaded ? formatTime(videoDuration) : "Loading..."}
         </div>
 
         <div onClick={toggleFullscreen}>
