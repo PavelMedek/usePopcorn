@@ -76,7 +76,7 @@ export default function App() {
   const router = useRouter();
 
   useEffect(() => {
-    router.refresh(router.asPath);
+    router.push(window.location.href);
   }, [router]);
 
   return (
