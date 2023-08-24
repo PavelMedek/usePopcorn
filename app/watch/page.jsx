@@ -142,7 +142,7 @@ export default function App() {
 
         <div className="test inline-block">
           {formatTime(currentTime)}/
-          {metadataLoaded ? formatTime(videoDuration) : "Loading..."}
+          {metadataLoaded ? formatTime(videoDuration) : "loa..."}
         </div>
 
         <div onClick={toggleFullscreen}>
