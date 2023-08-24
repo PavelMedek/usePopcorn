@@ -77,6 +77,13 @@ export default function App() {
 
   const router = useRouter();
 
+  const handleCanPlayThrough = () => {
+    if (!metadataLoaded) {
+      setVideoDuration(videoRef.current.duration);
+      setMetadataLoaded(true);
+    }
+  };
+
   useEffect(() => {
     setMetadataLoaded(false);
   }, [videoRef]);
@@ -98,6 +105,7 @@ export default function App() {
         onClick={handleVideoClick}
         onTimeUpdate={handleTimeUpdate}
         onLoadedMetadata={handleLoadedMetadata}
+        onCanPlayThrough={handleCanPlayThrough}
       ></video>
 
       <button
