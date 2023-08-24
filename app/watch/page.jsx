@@ -10,7 +10,6 @@ export default function App() {
   const [volume, setVolume] = useState(0.5);
   const [currentTime, setCurrentTime] = useState(0);
   const [videoDuration, setVideoDuration] = useState(0);
-  const [metadataLoaded, setMetadataLoaded] = useState(false);
 
   const videoRef = useRef(null);
 
@@ -64,7 +63,6 @@ export default function App() {
 
   const handleLoadedMetadata = () => {
     setVideoDuration(videoRef.current.duration);
-    setMetadataLoaded(true);
   };
 
   const formatTime = (timeInSeconds) => {
@@ -76,17 +74,6 @@ export default function App() {
   };
 
   const router = useRouter();
-
-  const handleCanPlayThrough = () => {
-    if (!metadataLoaded) {
-      setVideoDuration(videoRef.current.duration);
-      setMetadataLoaded(true);
-    }
-  };
-
-  useEffect(() => {
-    setMetadataLoaded(false);
-  }, [videoRef]);
 
   return (
     <div className="watch w-screen h-screen relative">
@@ -105,7 +92,6 @@ export default function App() {
         onClick={handleVideoClick}
         onTimeUpdate={handleTimeUpdate}
         onLoadedMetadata={handleLoadedMetadata}
-        onCanPlayThrough={handleCanPlayThrough}
       ></video>
 
       <button
@@ -149,8 +135,7 @@ export default function App() {
         />
 
         <div className="test inline-block">
-          {formatTime(currentTime)}/
-          {metadataLoaded ? formatTime(videoDuration) : "loa..."}
+          {formatTime(currentTime)}/{formatTime(videoDuration)}
         </div>
 
         <div onClick={toggleFullscreen}>
