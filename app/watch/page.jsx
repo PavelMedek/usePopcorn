@@ -134,7 +134,7 @@ export default function App() {
           }}
         />
 
-        {videoDuration > 0 ? (
+        {videoDuration !== null ? (
           <div className="test inline-block">
             {formatTime(currentTime)}/{formatTime(videoDuration)}
           </div>
