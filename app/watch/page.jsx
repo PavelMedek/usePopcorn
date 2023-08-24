@@ -88,7 +88,7 @@ export default function App() {
         ref={videoRef}
         className="video w-full h-full aspect-video"
         autoPlay
-        src="/videos/fdsa.mp4"
+        src="https://rr4---sn-vgqsknzs.googlevideo.com/videoplayback?expire=1692901149&ei=vUrnZIXjCaHMkwb-goLQBQ&ip=102.129.252.28&id=o-AN7KA5w_kDv5Q4nyGDN1Qq_VW302-VujF3tJJ8qqIDmv&itag=18&source=youtube&requiressl=yes&spc=UWF9f8jF-cjZVURBl_cxVthfM8WS1NU&vprv=1&svpuc=1&mime=video%2Fmp4&gir=yes&clen=18849243&ratebypass=yes&dur=674.423&lmt=1692792596168595&fexp=24007246,24363391,51000011&c=ANDROID&txp=6219224&sparams=expire%2Cei%2Cip%2Cid%2Citag%2Csource%2Crequiressl%2Cspc%2Cvprv%2Csvpuc%2Cmime%2Cgir%2Cclen%2Cratebypass%2Cdur%2Clmt&sig=AOq0QJ8wRQIgdfQSvncIDKwkNfWlu_NY0In2XTLqhR6H_jKM5MUONCoCIQCJlHrSEvu84ZgsvZS9I2m_B7qN1QAwrzbv2St7sSQ_Jw%3D%3D&title=Web3%20Modal%20Is%20Not%20Dead%3A%20An%20Important%20Update%20for%20Blockchain%20Developers&redirect_counter=1&cm2rm=sn-a5mee676&req_id=3abf18698c41a3ee&cms_redirect=yes&cmsv=e&mh=14&mip=31.30.167.37&mm=34&mn=sn-vgqsknzs&ms=ltu&mt=1692879360&mv=D&mvi=4&pl=0&lsparams=mh,mip,mm,mn,ms,mv,mvi,pl&lsig=AG3C_xAwRQIhAN23WWoMMbW2WfMMxcBJobiPlpH-LbuFKHnIlLkmlGuoAiAqof14y1TPmnc2xW2irmXeV4hzRKaRhj9XOh4F-jypEA%3D%3D"
         onClick={handleVideoClick}
         onTimeUpdate={handleTimeUpdate}
         onLoadedMetadata={handleLoadedMetadata}
