@@ -78,7 +78,7 @@ export default function App() {
   return (
     <div className="watch w-screen h-screen relative">
       <div
-        onClick={() => router.push("/watch")}
+        onClick={() => router.refresh()}
         className="back flex items-center absolute top-3 left-3 text-white cursor-pointer z-10"
       >
         <IoIosArrowBack className="mr-2" />
