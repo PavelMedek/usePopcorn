@@ -75,6 +75,10 @@ export default function App() {
 
   const router = useRouter();
 
+  useEffect(() => {
+    router.refresh();
+  }, [router]);
+
   return (
     <div className="watch w-screen h-screen relative">
       <div
@@ -134,13 +138,10 @@ export default function App() {
           }}
         />
 
-        {videoDuration !== null ? (
-          <div className="test inline-block">
-            {formatTime(currentTime)}/{formatTime(videoDuration)}
-          </div>
-        ) : (
-          <span>Loading...</span>
-        )}
+        <div className="test inline-block">
+          {formatTime(currentTime)}/
+          {videoDuration > 0 ? formatTime(videoDuration) : "Loading..."}
+        </div>
 
         <div onClick={toggleFullscreen}>
           <button className="test px-8 py-4 bg-white text-black rounded-full z-40">
