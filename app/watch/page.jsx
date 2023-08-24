@@ -134,10 +134,12 @@ export default function App() {
           }}
         />
 
-        {videoDuration > 0 && (
+        {videoDuration > 0 ? (
           <div className="test inline-block">
             {formatTime(currentTime)}/{formatTime(videoDuration)}
           </div>
+        ) : (
+          <span>Loading...</span>
         )}
 
         <div onClick={toggleFullscreen}>
