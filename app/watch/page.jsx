@@ -73,12 +73,6 @@ export default function App() {
       .padStart(2, "0")}`;
   };
 
-  const router = useRouter();
-
-  useEffect(() => {
-    router.push(window.location.href);
-  }, [router]);
-
   return (
     <div className="watch w-screen h-screen relative">
       <div
