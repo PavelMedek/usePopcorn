@@ -1,3 +1,5 @@
+"use client";
+
 import Button from "@/components/Button";
 import Image from "next/image";
 import Link from "next/link";
@@ -22,6 +24,8 @@ export default function Home() {
             škále seriálů z celého světa.
           </p>
           <Button text="Log In" />
+
+          <Link href="/watch">dsadsads</Link>
         </div>
       </section>
     </main>
