@@ -73,10 +73,12 @@ export default function App() {
       .padStart(2, "0")}`;
   };
 
+  const router = useRouter();
+
   return (
     <div className="watch w-screen h-screen relative">
       <div
-        onClick={() => console.log("dsa")}
+        onClick={() => router.push("/watch")}
         className="back flex items-center absolute top-3 left-3 text-white cursor-pointer z-10"
       >
         <IoIosArrowBack className="mr-2" />
