@@ -101,7 +101,7 @@ export default function App() {
         ref={videoRef}
         className="video w-full h-full aspect-video"
         autoPlay
-        src="/videos/fdsa.mp4"
+        src="/videos/fdsa.mp4?v=1"
         onClick={handleVideoClick}
         onTimeUpdate={handleTimeUpdate}
         onLoadedMetadata={handleLoadedMetadata}
