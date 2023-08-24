@@ -78,7 +78,7 @@ export default function App() {
   return (
     <div className="watch w-screen h-screen relative">
       <div
-        onClick={() => router.push("watch2")}
+        onClick={() => router.push("/watch")}
         className="back flex items-center absolute top-3 left-3 text-white cursor-pointer z-10"
       >
         <IoIosArrowBack className="mr-2" />
@@ -87,8 +87,7 @@ export default function App() {
       <video
         ref={videoRef}
         className="video w-full h-full aspect-video"
-        autoPlay
-        src="https://rr4---sn-vgqsknzs.googlevideo.com/videoplayback?expire=1692901149&ei=vUrnZIXjCaHMkwb-goLQBQ&ip=102.129.252.28&id=o-AN7KA5w_kDv5Q4nyGDN1Qq_VW302-VujF3tJJ8qqIDmv&itag=18&source=youtube&requiressl=yes&spc=UWF9f8jF-cjZVURBl_cxVthfM8WS1NU&vprv=1&svpuc=1&mime=video%2Fmp4&gir=yes&clen=18849243&ratebypass=yes&dur=674.423&lmt=1692792596168595&fexp=24007246,24363391,51000011&c=ANDROID&txp=6219224&sparams=expire%2Cei%2Cip%2Cid%2Citag%2Csource%2Crequiressl%2Cspc%2Cvprv%2Csvpuc%2Cmime%2Cgir%2Cclen%2Cratebypass%2Cdur%2Clmt&sig=AOq0QJ8wRQIgdfQSvncIDKwkNfWlu_NY0In2XTLqhR6H_jKM5MUONCoCIQCJlHrSEvu84ZgsvZS9I2m_B7qN1QAwrzbv2St7sSQ_Jw%3D%3D&title=Web3%20Modal%20Is%20Not%20Dead%3A%20An%20Important%20Update%20for%20Blockchain%20Developers&redirect_counter=1&cm2rm=sn-a5mee676&req_id=3abf18698c41a3ee&cms_redirect=yes&cmsv=e&mh=14&mip=31.30.167.37&mm=34&mn=sn-vgqsknzs&ms=ltu&mt=1692879360&mv=D&mvi=4&pl=0&lsparams=mh,mip,mm,mn,ms,mv,mvi,pl&lsig=AG3C_xAwRQIhAN23WWoMMbW2WfMMxcBJobiPlpH-LbuFKHnIlLkmlGuoAiAqof14y1TPmnc2xW2irmXeV4hzRKaRhj9XOh4F-jypEA%3D%3D"
+        src="https://rr4---sn-4g5e6nsr.googlevideo.com/videoplayback?expire=1692905605&ei=JVznZKaICOOfxN8PhsKU6AM&ip=188.241.82.30&id=o-AGsOWz1Nft4zMuEi39Zmgm-OE3_bUm_Xn75pYoSWioc4&itag=18&source=youtube&requiressl=yes&spc=UWF9f94Xqalq_0IRMrt0VTBh6qGBv0k&vprv=1&svpuc=1&mime=video%2Fmp4&gir=yes&clen=17388945&ratebypass=yes&dur=430.149&lmt=1692225363118559&fexp=24007246,24350018,24363391&beids=24350018&c=ANDROID&txp=5438434&sparams=expire%2Cei%2Cip%2Cid%2Citag%2Csource%2Crequiressl%2Cspc%2Cvprv%2Csvpuc%2Cmime%2Cgir%2Cclen%2Cratebypass%2Cdur%2Clmt&sig=AOq0QJ8wRQIhALmqgjRscVa4I-tfYbB-HdAwuxoGJWzJlzC3xBjK2IviAiBf5_QwqNRZFymavkxn2ge6FyrYxk0xV1arLvGiiiMohg%3D%3D&title=10%20LET%20-%20Reakce%20-%20Kame%C5%88%C3%A1k%204&redirect_counter=1&cm2rm=sn-h5q6k7s&req_id=5543ce9d137ba3ee&cms_redirect=yes&mh=ng&mip=31.30.167.37&mm=34&mn=sn-4g5e6nsr&ms=ltu&mt=1692883979&mv=m&mvi=4&pl=20&lsparams=mh,mip,mm,mn,ms,mv,mvi,pl&lsig=AG3C_xAwRQIhAIx509EAf2jT39aAsWUIZjy2mz2j3bwE53dnB-3vvqnTAiA_Ca8m8t5zNFYVGqPWR8i0XhMMcAuP06wGz2xCgmrn1A%3D%3D"
         onClick={handleVideoClick}
         onTimeUpdate={handleTimeUpdate}
         onLoadedMetadata={handleLoadedMetadata}
