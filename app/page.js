@@ -1,12 +1,6 @@
-"use client";
-
 import Button from "@/components/Button";
-import Image from "next/image";
-import Link from "next/link";
-import { useRouter } from "next/navigation";
 
 export default function Home() {
-  const router = useRouter();
   return (
     <main className="background min-h-screen text-white p-10">
       <nav className="flex justify-between items-center">
@@ -26,10 +20,6 @@ export default function Home() {
             škále seriálů z celého světa.
           </p>
           <Button text="Log In" />
-
-          <div onClick={() => router.push("/watch")} href="/watch">
-            dsadsads
-          </div>
         </div>
       </section>
     </main>
