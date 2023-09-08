@@ -6,6 +6,13 @@ import { AiOutlineLeft, AiOutlineRight } from "react-icons/ai";
 const EpisodeSwitcher = ({ episodes, episode }) => {
   const episodeName = episode.slug;
 
+  episodes.sort((a, b) => {
+    if (a.season !== b.season) {
+      return a.season - b.season;
+    }
+    return a.episode - b.episode;
+  });
+
   const currentEpisodeIndex = episodes.findIndex(
     (el) => el.slug === episodeName
   );
